@@ -1,0 +1,6 @@
+{
+    "/kl_delivery/": {
+    "target": "http://dxktpipo.kaarcloud.com:50000/RESTAdapter",
+    "secure": false
+    }
+}
