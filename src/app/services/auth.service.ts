@@ -8,8 +8,9 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   constructor(private http: HttpClient,private router: Router) { }
-  baseUrl : string='http://localhost:3000/login';
   LogInUserName : string='' ;
+  baseUrl : string='http://localhost:3000/login';
+  
   Data;
   LoggedIn(userName : string){
     this.LogInUserName=userName;
@@ -28,7 +29,7 @@ export class AuthService {
           this.router.navigateByUrl('/home');
         }
         else{
-          console.log("Invalid")
+          console.log("Invalid us")
         }
       }
     )

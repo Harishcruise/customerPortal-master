@@ -25,14 +25,16 @@ import { AuthGuardGuard } from './guard/auth-guard.guard';
 import { AuthService } from './services/auth.service';
 import { LoginGuardGuard } from './guard/login-guard.guard';
 import { HttpClientModule } from '@angular/common/http'
+import { HomePageComponent } from './homePage/homePage.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     LandingPageComponent,
-    LoginComponent
-  ],
+    LoginComponent,
+      HomePageComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './landingPage/landingPage.component';
 import { AuthGuardGuard } from './guard/auth-guard.guard';
 import { LoginGuardGuard } from './guard/login-guard.guard';
+import { HomePageComponent } from './homePage/homePage.component';
+
 
 const routes: Routes = [
   {
@@ -15,6 +17,11 @@ const routes: Routes = [
     path:'login',
     component:LoginComponent,
     canActivate:[LoginGuardGuard]
+  },
+  {
+    path:'main',
+    component:HomePageComponent,
+    canActivate:[AuthGuardGuard]
   },
   {
     path:'',
