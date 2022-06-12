@@ -9,7 +9,7 @@ import { FormBuilder } from '@angular/forms';
     CommonModule,
     MdbCarouselModule,
     ReactiveFormsModule,
-    FormBuilder
+    FormBuilder,
   ],
   declarations: [],
 })
