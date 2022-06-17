@@ -1,44 +1,109 @@
 <div class="bod">
-<div class="container">
-	<div class="sidebar">
-	 <span class="logo">S</span>
-	 <a class="logo-expand" href="#">Customer Dashboard</a>
-	 <div class="side-wrapper">
-	  <div class="side-title"></div>
-	  <div class="side-menu">
-	   <a class="sidebar-link discover is-active cursor-pointer" (click)="over()">
-		<svg viewBox="0 0 24 24" fill="currentColor">
-		 <path d="M9.135 20.773v-3.057c0-.78.637-1.414 1.423-1.414h2.875c.377 0 .74.15 1.006.414.267.265.417.625.417 1v3.057c-.002.325.126.637.356.867.23.23.544.36.87.36h1.962a3.46 3.46 0 002.443-1 3.41 3.41 0 001.013-2.422V9.867c0-.735-.328-1.431-.895-1.902l-6.671-5.29a3.097 3.097 0 00-3.949.072L3.467 7.965A2.474 2.474 0 002.5 9.867v8.702C2.5 20.464 4.047 22 5.956 22h1.916c.68 0 1.231-.544 1.236-1.218l.027-.009z" />
-		</svg>
-		Overview
-	   </a>
-	   <a class="sidebar-link cursor-pointer" (click)="prof()">
-		<svg viewBox="0 0 24 24" fill="currentColor">
-		 <path fill-rule="evenodd" clip-rule="evenodd" d="M17.769 8.382H22C22 4.985 19.964 3 16.516 3H7.484C4.036 3 2 4.985 2 8.338v7.324C2 19.015 4.036 21 7.484 21h9.032C19.964 21 22 19.015 22 15.662v-.313h-4.231c-1.964 0-3.556-1.552-3.556-3.466 0-1.915 1.592-3.467 3.556-3.467v-.034zm0 1.49h3.484c.413 0 .747.326.747.728v2.531a.746.746 0 01-.747.728H17.85c-.994.013-1.864-.65-2.089-1.595a1.982 1.982 0 01.433-1.652 2.091 2.091 0 011.576-.74zm.151 2.661h.329a.755.755 0 00.764-.745.755.755 0 00-.764-.746h-.329a.766.766 0 00-.54.213.727.727 0 00-.224.524c0 .413.34.75.764.754zM6.738 8.382h5.644a.755.755 0 00.765-.746.755.755 0 00-.765-.745H6.738a.755.755 0 00-.765.737c0 .413.341.75.765.754z" />
-		</svg>
-		Profile
-	   </a>
-	   <a class="sidebar-link trending cursor-pointer " (click)="enq()" >
-		<svg viewBox="0 0 24 24" fill="currentColor">
-		 <path fill-rule="evenodd" clip-rule="evenodd" d="M10.835 12.007l.002.354c.012 1.404.096 2.657.242 3.451 0 .015.16.802.261 1.064.16.38.447.701.809.905a2 2 0 00.91.219c.249-.012.66-.137.954-.242l.244-.094c1.617-.642 4.707-2.74 5.891-4.024l.087-.09.39-.42c.245-.322.375-.715.375-1.138 0-.379-.116-.758-.347-1.064-.07-.099-.18-.226-.28-.334l-.379-.397c-1.305-1.321-4.129-3.175-5.593-3.79 0-.013-.91-.393-1.343-.407h-.057c-.665 0-1.286.379-1.603.991-.087.168-.17.496-.233.784l-.114.544c-.13.874-.216 2.216-.216 3.688zm-6.332-1.525C3.673 10.482 3 11.162 3 12a1.51 1.51 0 001.503 1.518l3.7-.328c.65 0 1.179-.532 1.179-1.19 0-.658-.528-1.191-1.18-1.191l-3.699-.327z" />
-		</svg>
-		Enquiry Detail
-	   </a>
-	   <a class="sidebar-link cursor-pointer" (click)="sa()" >
-		<svg viewBox="0 0 24 24" fill="currentColor">
-		 <path d="M11.23 7.29V3.283c0-.427.34-.782.77-.782.385 0 .711.298.763.677l.007.104v4.01h4.78c2.38 0 4.335 1.949 4.445 4.38l.005.215v5.04c0 2.447-1.887 4.456-4.232 4.569l-.208.005H6.44c-2.38 0-4.326-1.94-4.435-4.379L2 16.905v-5.03c0-2.447 1.878-4.466 4.222-4.58l.208-.004h4.8v6.402l-1.6-1.652a.755.755 0 00-1.09 0 .81.81 0 00-.22.568c0 .157.045.32.14.459l.08.099 2.91 3.015c.14.155.34.237.55.237a.735.735 0 00.465-.166l.075-.071 2.91-3.015c.3-.31.3-.816 0-1.126a.755.755 0 00-1.004-.077l-.086.077-1.59 1.652V7.291h-1.54z" />
-		</svg>
-		Sales Order
-	   </a>
-	   <a class="sidebar-link cursor-pointer" (click)="deli()" >
-		<svg viewBox="0 0 24 24" fill="currentColor">
-		 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.1535 16.64L14.995 13.77C15.2822 13.47 15.2822 13 14.9851 12.71C14.698 12.42 14.2327 12.42 13.9455 12.71L12.3713 14.31V9.49C12.3713 9.07 12.0446 8.74 11.6386 8.74C11.2327 8.74 10.896 9.07 10.896 9.49V14.31L9.32178 12.71C9.03465 12.42 8.56931 12.42 8.28218 12.71C7.99505 13 7.99505 13.47 8.28218 13.77L11.1139 16.64C11.1832 16.71 11.2624 16.76 11.3515 16.8C11.4406 16.84 11.5396 16.86 11.6386 16.86C11.7376 16.86 11.8267 16.84 11.9158 16.8C12.005 16.76 12.0842 16.71 12.1535 16.64ZM19.3282 9.02561C19.5609 9.02292 19.8143 9.02 20.0446 9.02C20.302 9.02 20.5 9.22 20.5 9.47V17.51C20.5 19.99 18.5 22 16.0446 22H8.17327C5.58911 22 3.5 19.89 3.5 17.29V6.51C3.5 4.03 5.4901 2 7.96535 2H13.2525C13.5 2 13.7079 2.21 13.7079 2.46V5.68C13.7079 7.51 15.1931 9.01 17.0149 9.02C17.4333 9.02 17.8077 9.02318 18.1346 9.02595C18.3878 9.02809 18.6125 9.03 18.8069 9.03C18.9479 9.03 19.1306 9.02789 19.3282 9.02561ZM19.6045 7.5661C18.7916 7.5691 17.8322 7.5661 17.1421 7.5591C16.047 7.5591 15.145 6.6481 15.145 5.5421V2.9061C15.145 2.4751 15.6629 2.2611 15.9579 2.5721C16.7203 3.37199 17.8873 4.5978 18.8738 5.63395C19.2735 6.05379 19.6436 6.44249 19.945 6.7591C20.2342 7.0621 20.0223 7.5651 19.6045 7.5661Z" />
-		</svg>
-		List of Delivery
-	   </a>
-	  </div>
-	 </div>
-	 <!-- <div class="side-wrapper">
+  <div class="container">
+    <div class="sidebar">
+      <span class="logo">S</span>
+      <a class="logo-expand" href="#">Customer Dashboard</a>
+      <div class="side-wrapper">
+        <div class="side-title"></div>
+        <div class="side-menu">
+          <a class="sidebar-link discover cursor-pointer" [ngClass]="overview ? 'active' : 'dis'" (click)="over()">
+            <svg style="color: white" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M9.135 20.773v-3.057c0-.78.637-1.414 1.423-1.414h2.875c.377 0 .74.15 1.006.414.267.265.417.625.417 1v3.057c-.002.325.126.637.356.867.23.23.544.36.87.36h1.962a3.46 3.46 0 002.443-1 3.41 3.41 0 001.013-2.422V9.867c0-.735-.328-1.431-.895-1.902l-6.671-5.29a3.097 3.097 0 00-3.949.072L3.467 7.965A2.474 2.474 0 002.5 9.867v8.702C2.5 20.464 4.047 22 5.956 22h1.916c.68 0 1.231-.544 1.236-1.218l.027-.009z" />
+            </svg>
+            Overview
+          </a>
+          <a class="sidebar-link cursor-pointer" [ngClass]="profile ? 'active' : 'dis'" (click)="prof()">
+            <svg style="color: white" width="30" height="30" viewBox="0 0 48 48" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M24 42C33.9411 42 42 33.9411 42 24C42 14.0589 33.9411 6 24 6C14.0589 6 6 14.0589 6 24C6 33.9411 14.0589 42 24 42ZM24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
+                fill="white"></path>
+              <path
+                d="M12 35.6309C12 34.5972 12.772 33.7241 13.7995 33.6103C21.515 32.7559 26.5206 32.8325 34.218 33.6287C35.2324 33.7337 36 34.5918 36 35.6116C36 36.1807 35.7551 36.7275 35.3262 37.1014C26.2414 45.0195 21.0488 44.9103 12.6402 37.1087C12.2306 36.7286 12 36.1897 12 35.6309Z"
+                fill="white"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M34.1151 34.6234C26.4784 33.8334 21.5449 33.7587 13.9095 34.6042C13.3954 34.6612 13 35.1002 13 35.6309C13 35.9171 13.1187 36.1885 13.3204 36.3757C17.4879 40.2423 20.6461 41.9887 23.7333 41.9999C26.8309 42.0113 30.1592 40.2783 34.6691 36.3476C34.8767 36.1667 35 35.8964 35 35.6116C35 35.0998 34.6154 34.6752 34.1151 34.6234ZM13.6894 32.6164C21.4852 31.7531 26.5628 31.8315 34.3209 32.6341C35.8495 32.7922 37 34.0838 37 35.6116C37 36.465 36.6336 37.2884 35.9832 37.8553C31.4083 41.8426 27.598 44.0141 23.726 43.9999C19.8435 43.9857 16.2011 41.7767 11.9601 37.8418C11.3425 37.2688 11 36.4624 11 35.6309C11 34.0943 12.1487 32.787 13.6894 32.6164Z"
+                fill="white"></path>
+              <path
+                d="M32 20C32 24.4183 28.4183 28 24 28C19.5817 28 16 24.4183 16 20C16 15.5817 19.5817 12 24 12C28.4183 12 32 15.5817 32 20Z"
+                fill="white"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M24 26C27.3137 26 30 23.3137 30 20C30 16.6863 27.3137 14 24 14C20.6863 14 18 16.6863 18 20C18 23.3137 20.6863 26 24 26ZM24 28C28.4183 28 32 24.4183 32 20C32 15.5817 28.4183 12 24 12C19.5817 12 16 15.5817 16 20C16 24.4183 19.5817 28 24 28Z"
+                fill="white"></path>
+            </svg>
+            Profile
+          </a>
+          <a class="sidebar-link trending cursor-pointer " [ngClass]="enquiry ? 'active' : 'dis'" (click)="enq()">
+            <svg style="color: white" width="30" height="30" viewBox="0 0 48 48" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M42 24V9C42 7.34315 40.6569 6 39 6H9C7.34315 6 6 7.34315 6 9V39C6 40.6569 7.34315 42 9 42H24"
+                stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="white"></path>
+              <circle cx="32" cy="32" r="6" fill="none" stroke="#333" stroke-width="1"></circle>
+              <path d="M37 36L42 40" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                fill="white"></path>
+              <path d="M14 16H34" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                fill="white"></path>
+              <path d="M14 24L22 24" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                fill="white"></path>
+            </svg>
+            Enquiry Detail
+          </a>
+          <a class="sidebar-link cursor-pointer" [ngClass]="sale ? 'active' : 'dis'" (click)="sa()">
+            <svg style="color: white" width="30" height="30" viewBox="0 0 48 48" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <rect width="48" height="48" fill="white" fill-opacity="0.01"></rect>
+              <path d="M41 13.9997L24 4L7 13.9997L7 33.9998L24 44L41 33.9998V13.9997Z" fill="white" stroke="#333"
+                stroke-width="1" stroke-linejoin="round"></path>
+              <path d="M24 22V30" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                fill="white"></path>
+              <path d="M32 18V30" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                fill="white"></path>
+              <path d="M16 26V30" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                fill="white"></path>
+            </svg>
+            Sales Order
+          </a>
+          <a class="sidebar-link cursor-pointer" [ngClass]="delivery ? 'active' : 'dis'" (click)="deli()">
+            <svg style="color: white" width="30" height="30" stroke-width="1.5" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M8 19C9.10457 19 10 18.1046 10 17C10 15.8954 9.10457 15 8 15C6.89543 15 6 15.8954 6 17C6 18.1046 6.89543 19 8 19Z"
+                stroke="currentColor" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M18 19C19.1046 19 20 18.1046 20 17C20 15.8954 19.1046 15 18 15C16.8954 15 16 15.8954 16 17C16 18.1046 16.8954 19 18 19Z"
+                stroke="currentColor" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M10.05 17H15V6.6C15 6.26863 14.7314 6 14.4 6H1" stroke="currentColor" stroke-linecap="round" />
+              <path d="M5.65 17H3.6C3.26863 17 3 16.7314 3 16.4V11.5" stroke="currentColor" stroke-linecap="round" />
+              <path d="M2 9L6 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M15 9H20.6101C20.8472 9 21.0621 9.13964 21.1584 9.35632L22.9483 13.3836C22.9824 13.4604 23 13.5434 23 13.6273V16.4C23 16.7314 22.7314 17 22.4 17H20.5"
+                stroke="currentColor" stroke-linecap="round" />
+              <path d="M15 17H16" stroke="currentColor" stroke-linecap="round" /> </svg>
+            List of Delivery
+          </a>
+          <a class="sidebar-link cursor-pointer" [ngClass]="payment ? 'active' : 'dis'" (click)="pay()">
+            <svg style="color: white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-9-1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-6v11c0 1.1-.9 2-2 2H4v-2h17V7h2z"
+                fill="white"></path>
+            </svg>
+            <!-- <mat-icon>payment</mat-icon> -->
+            Payment Details
+          </a>
+          <a class="sidebar-link cursor-pointer" [ngClass]="credit ? 'active' : 'dis'" (click)="cred()">
+            <svg style="color: white" width="30" height="30" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              class="bi bi-credit-card" viewBox="0 0 16 16">
+              <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"
+                fill="white"></path>
+              <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z" fill="white"></path>
+            </svg>
+            Credit Memo Details
+          </a>
+        </div>
+      </div>
+      <!-- <div class="side-wrapper">
 	  <div class="side-title">CATEGORY</div>
 	  <div class="side-menu">
 	   <a class="sidebar-link" href="#">
@@ -67,452 +132,330 @@
 	   </a>
 	  </div>
 	 </div> -->
-	</div>
+    </div>
 
 
-	<div *ngIf="overview" class="wrapper">
-	 <div class="header">
-	  <div class="search-bar">
-	   <input type="text" placeholder="Search">
-	  </div>
-	  <div class="user-settings">
-	   <img class="user-img" src="https://images.unsplash.com/photo-1587918842454-870dbd18261a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=943&q=80" alt="">
-	   <div class="user-name">Thomas</div>
-	   <svg viewBox="0 0 492 492" fill="currentColor">
-		<path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
-	   </svg>
-	   <div class="notify">
-		<div class="notification"></div>
-		<svg viewBox="0 0 24 24" fill="currentColor">
-		 <path fill-rule="evenodd" clip-rule="evenodd" d="M18.707 8.796c0 1.256.332 1.997 1.063 2.85.553.628.73 1.435.73 2.31 0 .874-.287 1.704-.863 2.378a4.537 4.537 0 01-2.9 1.413c-1.571.134-3.143.247-4.736.247-1.595 0-3.166-.068-4.737-.247a4.532 4.532 0 01-2.9-1.413 3.616 3.616 0 01-.864-2.378c0-.875.178-1.682.73-2.31.754-.854 1.064-1.594 1.064-2.85V8.37c0-1.682.42-2.781 1.283-3.858C7.861 2.942 9.919 2 11.956 2h.09c2.08 0 4.204.987 5.466 2.625.82 1.054 1.195 2.108 1.195 3.745v.426zM9.074 20.061c0-.504.462-.734.89-.833.5-.106 3.545-.106 4.045 0 .428.099.89.33.89.833-.025.48-.306.904-.695 1.174a3.635 3.635 0 01-1.713.731 3.795 3.795 0 01-1.008 0 3.618 3.618 0 01-1.714-.732c-.39-.269-.67-.694-.695-1.173z" />
-		</svg>
-	   </div>
-	  </div>
-	 </div>
-	 <div class="main-container">
-	  <div class="main-header anim" style="--delay: 0s">Discover</div>
-	  <div class="main-blogs">
-	   <div class="main-blog anim" style="--delay: .1s">
-		<div class="main-blog__title">How to do Basic Jumping and how to landing safely</div>
-		<div class="main-blog__author">
-		 <div class="author-img__wrapper">
-		  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-		   <path d="M20 6L9 17l-5-5" />
-		  </svg>
-		  <img class="author-img" src="https://images.unsplash.com/photo-1560941001-d4b52ad00ecc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" />
-		 </div>
-		 <div class="author-detail">
-		  <div class="author-name">Thomas Hope</div>
-		  <div class="author-info">53K views <span class="seperate"></span>2 weeks ago</div>
-		 </div>
-		</div>
-		<div class="main-blog__time">7 min</div>
-	   </div>
-	   <div class="main-blog anim" style="--delay: .2s">
-		<div class="main-blog__title">Skateboard Tips You need to know</div>
-		<div class="main-blog__author tips">
-		 <div class="main-blog__time">7 min</div>
-		 <div class="author-img__wrapper">
-		  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-		   <path d="M20 6L9 17l-5-5" />
-		  </svg>
-		  <img class="author-img" src="https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzl8fG1lbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
-		 </div>
-		 <div class="author-detail">
-		  <div class="author-name">Tony Andrew</div>
-		  <div class="author-info">53K views <span></span>2 weeks ago</div>
-		 </div>
-		</div>
-	   </div>
-	  </div>
-	  <div class="small-header anim" style="--delay: .3s">Most Watched</div>
-	  <div class="videos">
-	   <div class="video anim" style="--delay: .4s">
-		<div class="video-time">8 min</div>
-		<div class="video-wrapper">
-		 <video muted="">
-		  <source src="https://player.vimeo.com/external/436572488.sd.mp4?s=eae5fb490e214deb9ff532dd98d101efe94e7a8b&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
-		 </video>
-		 <div class="author-img__wrapper video-author">
-		  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-		   <path d="M20 6L9 17l-5-5" />
-		  </svg>
-		  <img class="author-img" src="https://images.pexels.com/photos/1680172/pexels-photo-1680172.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-		 </div>
-		</div>
-		<div class="video-by">Andy William</div>
-		<div class="video-name">Basic how to ride your skateboard comfortly</div>
-		<div class="video-view">54K views<span class="seperate video-seperate"></span>1 week ago</div>
-	   </div>
-	   <div class="video anim" style="--delay: .5s">
-		<div class="video-time">5 min</div>
-		<div class="video-wrapper">
-		 <video muted="">
-		  <source src="https://player.vimeo.com/external/449972745.sd.mp4?s=9943177fe8a6147b7bc4598259401f06ec57878a&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
-		 </video>
-		 <div class="author-img__wrapper video-author">
-		  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-		   <path d="M20 6L9 17l-5-5" />
-		  </svg>
-		  <img class="author-img" src="https://images.pexels.com/photos/3370021/pexels-photo-3370021.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-		 </div>
-		</div>
-		<div class="video-by offline">Gerard Bind</div>
-		<div class="video-name">Prepare for your first skateboard jump</div>
-		<div class="video-view">42K views<span class="seperate video-seperate"></span>1 week ago</div>
-	   </div>
-	   <div class="video anim" style="--delay: .6s">
-		<div class="video-time">7 min</div>
-		<div class="video-wrapper">
-		 <video muted="">
-		  <source src="https://player.vimeo.com/external/436553499.sd.mp4?s=0e44527f269278743db448761e35c5e39cfaa52c&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
-		 </video>
-		 <div class="author-img__wrapper video-author">
-		  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-		   <path d="M20 6L9 17l-5-5" />
-		  </svg>
-		  <img class="author-img" src="https://images.pexels.com/photos/1870163/pexels-photo-1870163.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-		 </div>
-		</div>
-		<div class="video-by offline">John Wise</div>
-		<div class="video-name">Basic equipment to play skateboard safely</div>
-		<div class="video-view">64K views<span class="seperate video-seperate"></span>2 week ago</div>
-	   </div>
-	   <div class="video anim" style="--delay: .7s">
-		<div class="video-time">6 min</div>
-		<div class="video-wrapper">
-		 <video muted="">
-		  <source src="https://player.vimeo.com/external/361861493.sd.mp4?s=19d8275ca755d653042a87ef28b2f0b2eabf57d0&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
-		 </video>
-		 <div class="author-img__wrapper video-author">
-		  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-		   <path d="M20 6L9 17l-5-5" />
-		  </svg>
-		  <img class="author-img" src="https://images.pexels.com/photos/2889942/pexels-photo-2889942.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-		 </div>
-		</div>
-		<div class="video-by">Budi Hakim</div>
-		<div class="video-name">Tips to playing skateboard on the ramp</div>
-		<div class="video-view">50K views<span class="seperate video-seperate"></span>1 week ago</div>
-	   </div>
-	  </div>
-	  <div class="stream-area">
-	   <div class="video-stream">
-		<video id="my_video_1" class="video-js vjs-default-skin anim" width="640px" height="267px" controls preload="none" poster='https://images.unsplash.com/photo-1476801071117-fbc157ae3f01?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDh8fHxlbnwwfHx8&w=1000&q=80' data-setup='{ "aspectRatio":"940:620", "playbackRates": [1, 1.5, 2] }'>
-		 <source src="https://player.vimeo.com/external/390402719.sd.mp4?s=20cfdb066c4253047562b65bd4e411b86a004bc5&profile_id=139&oauth2_token_id=57447761" type='video/mp4' />
-		 <source src="https://player.vimeo.com/external/390402719.sd.mp4?s=20cfdb066c4253047562b65bd4e411b86a004bc5&profile_id=139&oauth2_token_id=57447761" type='video/webm' />
-		</video>
-		<div class="video-detail">
-		 <div class="video-content">
-		  <div class="video-p-wrapper anim" style="--delay: .1s">
-		   <div class="author-img__wrapper video-author video-p">
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-			 <path d="M20 6L9 17l-5-5" />
-			</svg>
-			<img class="author-img" src="https://images.pexels.com/photos/1680172/pexels-photo-1680172.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-		   </div>
-		   <div class="video-p-detail">
-			<div class="video-p-name">Andy William</div>
-			<div class="video-p-sub">1,980,893 subscribers</div>
-		   </div>
-		   <div class="button-wrapper">
-			<button class="like">
-			 <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-			  <path d="M21.435 2.582a1.933 1.933 0 00-1.93-.503L3.408 6.759a1.92 1.92 0 00-1.384 1.522c-.142.75.355 1.704 1.003 2.102l5.033 3.094a1.304 1.304 0 001.61-.194l5.763-5.799a.734.734 0 011.06 0c.29.292.29.765 0 1.067l-5.773 5.8c-.428.43-.508 1.1-.193 1.62l3.075 5.083c.36.604.98.946 1.66.946.08 0 .17 0 .251-.01.78-.1 1.4-.634 1.63-1.39l4.773-16.075c.21-.685.02-1.43-.48-1.943z" />
-			 </svg>
-			 Share
-			</button>
-			<button class="like red">
-			 <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-			  <path fill-rule="evenodd" clip-rule="evenodd" d="M15.85 2.5c.63 0 1.26.09 1.86.29 3.69 1.2 5.02 5.25 3.91 8.79a12.728 12.728 0 01-3.01 4.81 38.456 38.456 0 01-6.33 4.96l-.25.15-.26-.16a38.093 38.093 0 01-6.37-4.96 12.933 12.933 0 01-3.01-4.8c-1.13-3.54.2-7.59 3.93-8.81.29-.1.59-.17.89-.21h.12c.28-.04.56-.06.84-.06h.11c.63.02 1.24.13 1.83.33h.06c.04.02.07.04.09.06.22.07.43.15.63.26l.38.17c.092.05.195.125.284.19.056.04.107.077.146.1l.05.03c.085.05.175.102.25.16a6.263 6.263 0 013.85-1.3zm2.66 7.2c.41-.01.76-.34.79-.76v-.12a3.3 3.3 0 00-2.11-3.16.8.8 0 00-1.01.5c-.14.42.08.88.5 1.03.64.24 1.07.87 1.07 1.57v.03a.86.86 0 00.19.62c.14.17.35.27.57.29z" />
-			 </svg>
-			 Liked
-			</button>
-		   </div>
-		  </div>
-		  <div class="video-p-title anim" style="--delay: .2s">Basic how to ride your Skateboard</div>
-		  <div class="video-p-subtitle anim" style="--delay: .3s">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus illum tempora consequuntur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis earum velit accusantium maiores qui sit quas, laborum voluptatibus vero quidem tempore facilis voluptate tempora deserunt! </div>
-		  <div class="video-p-subtitle anim" style="--delay: .4s">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus laborum qui dolorum fugiat eius accusantium repellendus illum tempora consequuntur. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</div>
-		 </div>
-		</div>
-	   </div>
-	   <div class="chat-stream">
-		<div class="chat">
-		 <div class="chat-header anim">Live Chat<span><svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-			<path fill-rule="evenodd" clip-rule="evenodd" d="M14.212 7.762c0 2.644-2.163 4.763-4.863 4.763-2.698 0-4.863-2.119-4.863-4.763C4.486 5.12 6.651 3 9.35 3c2.7 0 4.863 2.119 4.863 4.762zM2 17.917c0-2.447 3.386-3.06 7.35-3.06 3.985 0 7.349.634 7.349 3.083 0 2.448-3.386 3.06-7.35 3.06C5.364 21 2 20.367 2 17.917zM16.173 7.85a6.368 6.368 0 01-1.137 3.646c-.075.107-.008.252.123.275.182.03.369.048.56.052 1.898.048 3.601-1.148 4.072-2.95.697-2.675-1.35-5.077-3.957-5.077a4.16 4.16 0 00-.818.082c-.036.008-.075.025-.095.055-.025.04-.007.09.019.124a6.414 6.414 0 011.233 3.793zm3.144 5.853c1.276.245 2.115.742 2.462 1.467a2.107 2.107 0 010 1.878c-.531 1.123-2.245 1.485-2.912 1.578a.207.207 0 01-.234-.232c.34-3.113-2.367-4.588-3.067-4.927-.03-.017-.036-.04-.034-.055.002-.01.015-.025.038-.028 1.515-.028 3.145.176 3.747.32z" />
-		   </svg>
-		   15,988 people
-		  </span>
-		 </div>
-		 <div class="message-container">
-		  <div class="message anim" style="--delay: .1s">
-		   <div class="author-img__wrapper video-author video-p">
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-			 <path d="M20 6L9 17l-5-5" />
-			</svg>
-			<img class="author-img" src="https://images.unsplash.com/photo-1560941001-d4b52ad00ecc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" />
-		   </div>
-		   <div class="msg-wrapper">
-			<div class="msg__name video-p-name"> Wijaya Adabi</div>
-			<div class="msg__content video-p-sub"> Lorem ipsum clor sit, ame conse quae debitis</div>
-		   </div>
-		  </div>
-		  <div class="message anim" style="--delay: .2s">
-		   <div class="author-img__wrapper video-author video-p">
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-			 <path d="M20 6L9 17l-5-5" />
-			</svg>
-			<img class="author-img" src="https://images.pexels.com/photos/2889942/pexels-photo-2889942.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-		   </div>
-		   <div class="msg-wrapper">
-			<div class="msg__name video-p-name offline"> Johny Wise</div>
-			<div class="msg__content video-p-sub"> Suscipit eos atque voluptates labore</div>
-		   </div>
-		  </div>
-		  <div class="message anim" style="--delay: .3s">
-		   <div class="author-img__wrapper video-author video-p">
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-			 <path d="M20 6L9 17l-5-5" />
-			</svg>
-			<img class="author-img" src="https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzl8fG1lbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
-		   </div>
-		   <div class="msg-wrapper">
-			<div class="msg__name video-p-name offline"> Budi Hakim</div>
-			<div class="msg__content video-p-sub">Dicta quidem sunt adipisci</div>
-		   </div>
-		  </div>
-		  <div class="message anim" style="--delay: .4s">
-		   <div class="author-img__wrapper video-author video-p">
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-			 <path d="M20 6L9 17l-5-5" />
-			</svg>
-			<img class="author-img" src="https://images.pexels.com/photos/1870163/pexels-photo-1870163.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-		   </div>
-		   <div class="msg-wrapper">
-			<div class="msg__name video-p-name"> Thomas Hope</div>
-			<div class="msg__content video-p-sub"> recusandae doloremque aperiam alias molestias</div>
-		   </div>
-		  </div>
-		  <div class="message anim" style="--delay: .5s">
-		   <div class="author-img__wrapper video-author video-p">
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-			 <path d="M20 6L9 17l-5-5" />
-			</svg>
-			<img class="author-img" src="https://images.pexels.com/photos/1680172/pexels-photo-1680172.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-		   </div>
-		   <div class="msg-wrapper">
-			<div class="msg__name video-p-name"> Gerard Will</div>
-			<div class="msg__content video-p-sub">Dicta quidem sunt adipisci</div>
-		   </div>
-		  </div>
-		  <div class="message anim" style="--delay: .6s">
-		   <div class="author-img__wrapper video-author video-p">
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-			 <path d="M20 6L9 17l-5-5" />
-			</svg>
-			<img class="author-img" src="https://images.pexels.com/photos/2889942/pexels-photo-2889942.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-		   </div>
-		   <div class="msg-wrapper">
-			<div class="msg__name video-p-name offline">Johny Wise</div>
-			<div class="msg__content video-p-sub"> recusandae doloremque aperiam alias molestias</div>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="chat-footer anim" style="--delay: .1s">
-		  <input type="text" placeholder="Write your message">
-		 </div>
-		</div>
-		<div class="chat-vid__container">
-		 <div class="chat-vid__title anim" style="--delay: .3s">Related Videos</div>
-		 <div class="chat-vid anim" style="--delay: .4s">
-		  <div class="chat-vid__wrapper">
-		   <img class="chat-vid__img" src="https://cdn.nohat.cc/thumb/f/720/3b55eddcfffa4e87897d.jpg" />
-		   <div class="chat-vid__content">
-			<div class="chat-vid__name">Prepare for your first skateboard jump</div>
-			<div class="chat-vid__by">Jordan Wise</div>
-			<div class="chat-vid__info">125.908 views <span class="seperate"></span>2 days ago</div>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="chat-vid anim" style="--delay: .5s">
-		  <div class="chat-vid__wrapper">
-		   <img class="chat-vid__img" src="https://iamaround.it/wp-content/uploads/2015/02/pexels-photo-4663818.jpeg" />
-		   <div class="chat-vid__content">
-			<div class="chat-vid__name">Prepare for your first skateboard jump</div>
-			<div class="chat-vid__by">Jordan Wise</div>
-			<div class="chat-vid__info">125.908 views <span class="seperate"></span>2 days ago</div>
-		   </div>
-		  </div>
-		 </div>
-		 <div class="chat-vid__button anim" style="--delay: .6s">See All related videos (32)</div>
-		</div>
-	   </div>
-	  </div>
-	 </div>
-	</div>
+    <div class="wrapper">
+      <div class="header">
+        <div class="search-bar">
+          <input type="text" placeholder="Search">
+        </div>
+        <div class="user-settings">
+          <img class="user-img" src="../../assets/pngwing.com.png" alt="">
+          <div class="user-name">{{ ProfileData.IT_OUTPUT.NAME1 }}</div>
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>{{expand}}</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="LogOut()">
+              <mat-icon>logout</mat-icon>
+              <span>Log Out</span>
+            </button>
+          </mat-menu>
+          <div class="notify">
+            <div class="notification"></div>
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M18.707 8.796c0 1.256.332 1.997 1.063 2.85.553.628.73 1.435.73 2.31 0 .874-.287 1.704-.863 2.378a4.537 4.537 0 01-2.9 1.413c-1.571.134-3.143.247-4.736.247-1.595 0-3.166-.068-4.737-.247a4.532 4.532 0 01-2.9-1.413 3.616 3.616 0 01-.864-2.378c0-.875.178-1.682.73-2.31.754-.854 1.064-1.594 1.064-2.85V8.37c0-1.682.42-2.781 1.283-3.858C7.861 2.942 9.919 2 11.956 2h.09c2.08 0 4.204.987 5.466 2.625.82 1.054 1.195 2.108 1.195 3.745v.426zM9.074 20.061c0-.504.462-.734.89-.833.5-.106 3.545-.106 4.045 0 .428.099.89.33.89.833-.025.48-.306.904-.695 1.174a3.635 3.635 0 01-1.713.731 3.795 3.795 0 01-1.008 0 3.618 3.618 0 01-1.714-.732c-.39-.269-.67-.694-.695-1.173z" />
+            </svg>
+          </div>
+        </div>
+      </div>
 
-<!-- Content2 -->
+      <!-- content1 -->
+      <div *ngIf="overview" class="main-container">
+        <div class="main-header anim" style="--delay: 0s">Overview</div>
+        <div class="main-blogs">
+          <div class="main-blog anim" style="--delay: .1s">
+            <div class="main-blog__title1 mt-2">Hello {{ ProfileData.IT_OUTPUT.NAME1 }} </div>
+            <div class="main-blog__author">
+              <div class="main-blog__title mt-6">No. of Credit Memo records:</div>
+              <div class="main-blog__title1 mt-6">{{CreditMemoDataArray.length}}</div>
+              <div class="main-blog__title mt-6 ml-28">No. of Debit Memo records:</div>
+              <div class="main-blog__title1 mt-6">{{DebitMemoDataArray.length}}</div>
+            </div>
+          </div>
+          <div class="main-blog anim" style="--delay: .2s">
+            <div class="main-blog__author mt-4">
+              <div class="main-blog__title mt-10 ml-6">No. of Sales Order:</div>
+              <div class="main-blog__title1 mt-4">{{SaleDataArray.length}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="main-blogs mt-8">
+          <div class="main-blog2 anim" style="--delay: .2s">
+            <div class="main-blog__author mt-10">
+              <div class="main-blog__title mt-10 ml-6">No. of Inquiry Details:</div>
+              <div class="main-blog__title1 mt-10">{{InquiryDataArray.length}}</div>
+            </div>
+          </div>
 
-<div *ngIf="profile" class="wrapper">
-	<div class="header">
-	 <div class="search-bar">
-	  <input type="text" placeholder="Search">
-	 </div>
-	 <div class="user-settings">
-	  <img class="user-img" src="https://images.unsplash.com/photo-1587918842454-870dbd18261a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=943&q=80" alt="">
-	  <div class="user-name">Thomas</div>
-	  <svg viewBox="0 0 492 492" fill="currentColor">
-	   <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
-	  </svg>
-	  <div class="notify">
-	   <div class="notification"></div>
-	   <svg viewBox="0 0 24 24" fill="currentColor">
-		<path fill-rule="evenodd" clip-rule="evenodd" d="M18.707 8.796c0 1.256.332 1.997 1.063 2.85.553.628.73 1.435.73 2.31 0 .874-.287 1.704-.863 2.378a4.537 4.537 0 01-2.9 1.413c-1.571.134-3.143.247-4.736.247-1.595 0-3.166-.068-4.737-.247a4.532 4.532 0 01-2.9-1.413 3.616 3.616 0 01-.864-2.378c0-.875.178-1.682.73-2.31.754-.854 1.064-1.594 1.064-2.85V8.37c0-1.682.42-2.781 1.283-3.858C7.861 2.942 9.919 2 11.956 2h.09c2.08 0 4.204.987 5.466 2.625.82 1.054 1.195 2.108 1.195 3.745v.426zM9.074 20.061c0-.504.462-.734.89-.833.5-.106 3.545-.106 4.045 0 .428.099.89.33.89.833-.025.48-.306.904-.695 1.174a3.635 3.635 0 01-1.713.731 3.795 3.795 0 01-1.008 0 3.618 3.618 0 01-1.714-.732c-.39-.269-.67-.694-.695-1.173z" />
-	   </svg>
-	  </div>
-	 </div>
-	</div>
-	<div class="main-container">
-	<div class="main-header anim" style="--delay: 0s">Profile</div>
-	<!-- <div class="main-blogs"> -->
-														<div class="card user-card-full mt-16 w-[1000px] h-[900px]  anim" style="--delay: 0.1s">
-															<div class="row h-[900px]">
-																<div class="col-sm-4 bg-c-lite-green user-profile">
-																	<div class="card-block text-center text-white mt-4">
-																		<div class="ml-2" >
-																			<img src="../../assets/pngwing.com.png">
-																		</div>
-																		<h6 class="font-extrabold mt-5">Hembo Tingor</h6>
-																		<!-- <p>Web Designer</p> -->
-																		<i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
-																	</div>
-																</div>
-																<div class="col-sm-8">
-																	<div class="card-block">
-																		<h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
-																		<div class="row">
-																			<div class="col-sm-6">
-																				<p class="m-b-10 f-w-600">Customer ID</p>
-																				<h6 class="text-muted f-w-400">rntng@gmail.com</h6>
-																			</div>
-																			<div class="col-sm-6">
-																				<p class="m-b-10 f-w-600">Phone</p>
-																				<h6 class="text-muted f-w-400">98979989898</h6>
-																			</div>
-																		</div>
-																		<!-- <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6> -->
-																		<div class="row">
-																			<div class="col-sm-6">
-																				<p class="m-b-10 f-w-600">Address</p>
-																				<h6 class="text-muted f-w-400">Sam Disuja</h6>
-																			</div>
-																			<div class="col-sm-6">
-																				<p class="m-b-10 f-w-600">Pin Code</p>
-																				<h6 class="text-muted f-w-400">Dinoter husainm</h6>
-																			</div>
-																		</div>
-																		<!-- <ul class="social-link list-unstyled m-t-40 m-b-10">
-																			<li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
-																			<li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
-																			<li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="instagram" data-abc="true"><i class="mdi mdi-instagram feather icon-instagram instagram" aria-hidden="true"></i></a></li>
-																		</ul> -->
-																	</div>
-																
-													 </div>
-														</div>
-													</div>
-		<!-- </div> -->
-	</div>
+          <div class="main-blog3 anim" style="--delay: .2s">
+            <div class="main-blog__author mt-10">
+              <div class="main-blog__title mt-10 ml-6">No. of Deliveries:</div>
+              <div class="main-blog__title1 mt-10">{{DeliveryDataArray.length}}</div>
+            </div>
+          </div>
+
+          <div class="main-blog4 anim" style="--delay: .2s">
+            <div class="main-blog__author mt-10">
+              <div class="main-blog__title mt-10 ml-6">No. of Payment Details:</div>
+              <div class="main-blog__title1 ml-4 mt-10">{{PaymentDataArray.length}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- content2 -->
+      <div *ngIf="profile" class="main-container">
+        <div class="main-header anim" style="--delay: 0s">Profile</div>
+        <!-- <div class="main-blogs"> -->
+        <div class="card user-card-full mt-16 w-[1000px] h-[900px] rounded-3xl  anim" style="--delay: 0.1s">
+          <div class="row h-[900px]">
+            <div class="col-sm-4 bg-c-lite-green user-profile">
+              <div class="card-block text-center text-white mt-4">
+                <div class="ml-2">
+                  <img src="../../assets/pngwing.com.png">
+                </div>
+                <h6 class="font-extrabold mt-5">{{ ProfileData.IT_OUTPUT.NAME1 }}</h6>
+                <!-- <p>Web Designer</p> -->
+                <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="card-block mt-6">
+                <h1 class=" b-b-default f-w-600 text-zinc-800">Information</h1>
+                <div class="row mt-16">
+                  <div class="col-sm-6">
+                    <h3 class="m-b-10 f-w-600 text-zinc-800">Customer ID</h3>
+                    <h3 class="text-muted f-w-400">{{ ProfileData.IT_OUTPUT.KUNNR }}</h3>
+                  </div>
+                  <div class="col-sm-6">
+                    <h3 class="m-b-10 f-w-600 text-zinc-800">Phone</h3>
+                    <h3 class="text-muted f-w-400">{{ ProfileData.IT_OUTPUT.TELF1 }}</h3>
+                  </div>
+                </div>
+                <!-- <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6> -->
+                <div class="row mt-16">
+                  <div class="col-sm-6">
+                    <h3 class="m-b-10 f-w-600 text-zinc-800">Address</h3>
+                    <h3 class="text-muted f-w-400">{{ ProfileData.IT_OUTPUT.ORT01 }}</h3>
+                  </div>
+                  <div class="col-sm-6">
+                    <h3 class="m-b-10 f-w-600 text-zinc-800">Pin Code</h3>
+                    <h3 class="text-muted f-w-400">{{ ProfileData.IT_OUTPUT.PSTLZ }}</h3>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+      </div>
+
+
+      <!-- content3 -->
+
+      <div *ngIf="enquiry" class="main-container">
+        <div class="main-header anim" style="--delay: 0s">Enquiry Details</div>
+        <section class="main anim" style="--delay: 0.1s">
+          <ul>
+            <li>
+              <div>Item</div>
+              <div>Price</div>
+              <div>Rate</div>
+              <div>Item</div>
+              <div>Price</div>
+              <div>Rate</div>
+              <div>Item</div>
+              <div>Price</div>
+            </li>
+            <li *ngFor="let data of InquiryDataArray">
+              <div>{{data.VBELN}}</div>
+              <div>{{data.ERDAT}}</div>
+              <div>{{data.ERNAM}}</div>
+              <div>{{data.ANGDT}}</div>
+              <div>{{data.BNDDT}}</div>
+              <div>{{data.AUDAT}}</div>
+              <div>{{data.VDATU}}</div>
+              <div>{{data.AUTLF}}</div>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+
+      <!-- content 4 -->
+      <div *ngIf="sale" class="main-container">
+        <div class="main-header anim" style="--delay: 0s">Sales Order</div>
+        <section class="main anim" style="--delay: 0.1s">
+          <ul>
+            <li>
+              <div>DOC Number</div>
+              <div>Creation Date</div>
+              <div>Unit Of Measure</div>
+              <div>Currency</div>
+              <div>Document Type</div>
+              <div>Document Status</div>
+              <div>Item Number</div>
+              <div>Net Value</div>
+              <!-- <div>Purchase Number</div>
+					<div>Required Quantity</div>
+					<div>Sales Organization</div> -->
+            </li>
+            <li *ngFor="let data of SaleDataArray">
+              <div>{{data.SD_DOC}}</div>
+              <div>{{data.CREATION_DATE}}</div>
+              <div>{{data.BASE_UOM}}</div>
+              <div>{{data.CURRENCY}}</div>
+              <div>{{data.DOC_TYPE}}</div>
+              <div>{{data.DOC_STATUS}}</div>
+              <div>{{data.ITM_NUMBER}}</div>
+              <div>{{data.NET_VALUE}}</div>
+              <!-- <div>{{data.PURCH_NO}}</div>
+					<div>{{data.REQ_QTY}}</div>
+					<div>{{data.SALES_ORG}}</div> -->
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- content 5 -->
+
+
+      <div *ngIf="delivery" class="main-container">
+        <div class="main-header anim" style="--delay: 0s">Delivery Details</div>
+        <section class="main anim" style="--delay: 0.1s">
+          <ul>
+            <li>
+              <div>Distribution Number</div>
+              <div>Time</div>
+              <div>Record Created On</div>
+              <div>Sales Org</div>
+              <div>Delivery Type</div>
+              <div>Delivery Date</div>
+              <div>IncoTerms</div>
+              <div>Time Of Delivery</div>
+            </li>
+            <li *ngFor="let data of DeliveryDataArray">
+              <div>{{data.VBELN}}</div>
+              <div>{{data.ERZET}}</div>
+              <div>{{data.ERDAT}}</div>
+              <div>{{data.VKORG}}</div>
+              <div>{{data.LFART}}</div>
+              <div>{{data.LFDAT_V}}</div>
+              <div>{{data.INCO2}}</div>
+              <div>{{data.LFUHR}}</div>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+
+      <!-- content 6 -->
+
+
+      <div *ngIf="payment" class="main-container">
+        <div class="main-header anim" style="--delay: 0s">Payment Details</div>
+        <section class="main anim" style="--delay: 0.1s">
+          <ul>
+            <li>
+              <!-- <div>Company Code</div> -->
+              <div>Allocation Number</div>
+              <div>Currency Type</div>
+              <div>Local Amount</div>
+              <div>Local Tax</div>
+              <div>Baseline Date</div>
+              <div>Object Type</div>
+              <div>Payment Types</div>
+              <div>Discount Amount</div>
+            </li>
+            <li *ngFor="let data of PaymentDataArray">
+              <!-- <div>{{data.COMP_CODE}}</div> -->
+              <div>{{data.ALLOC_NMBR}}</div>
+              <div>{{data.CURRENCY}}</div>
+              <div>{{data.LC_AMOUNT}}</div>
+              <div>{{data.LC_TAX}}</div>
+              <div>{{data.BLINE_DATE}}</div>
+              <div>{{data.OBJ_TYPE}}</div>
+              <div>{{data.PMNTTRMS}}</div>
+              <div>{{data.DISC_BASE}}</div>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- content 7 -->
+
+      <div *ngIf="credit" class="main-container">
+        <div class="main-header anim" style="--delay: 0s">Credit Memo Details</div>
+        <mat-tab-group class="main anim" style="--delay: 0.1s" mat-align-tabs="center">
+          <mat-tab label="Credit Details">
+            <section class="main">
+              <ul>
+                <li>
+
+                  <div>Account Number</div>
+                  <div>Line Items</div>
+                  <div>Amount</div>
+                  <div>Fiscal Year</div>
+                  <div>Account Type</div>
+                  <div>Customer</div>
+                  <div>Quantity</div>
+                  <div>Indicator</div>
+                </li>
+                <li *ngFor="let data of CreditMemoDataArray">
+
+                  <div>{{data.BELNR}}</div>
+                  <div>{{data.BUZEI}}</div>
+                  <div>{{data.DMBTR}}</div>
+                  <div>{{data.GJAHR}}</div>
+                  <div>{{data.KOART}}</div>
+                  <div>{{data.KUNNR}}</div>
+                  <div>{{data.MENGE}}</div>
+                  <div>{{data.XBILK}}</div>
+                </li>
+              </ul>
+            </section>
+          </mat-tab>
+          <mat-tab label="Debit Details" style="color:white ;">
+            <section class="main">
+              <ul>
+                <li>
+
+                  <div>Account Number</div>
+                  <div>Line Items</div>
+                  <div>Amount</div>
+                  <div>Fiscal Year</div>
+                  <div>Account Type</div>
+                  <div>Customer</div>
+                  <div>Quantity</div>
+                  <div>Indicator</div>
+                </li>
+                <li *ngFor="let data of DebitMemoDataArray">
+
+                  <div>{{data.BELNR}}</div>
+                  <div>{{data.BUZEI}}</div>
+                  <div>{{data.DMBTR}}</div>
+                  <div>{{data.GJAHR}}</div>
+                  <div>{{data.KOART}}</div>
+                  <div>{{data.KUNNR}}</div>
+                  <div>{{data.MENGE}}</div>
+                  <div>{{data.XBILK}}</div>
+                </li>
+              </ul>
+            </section>
+          </mat-tab>
+        </mat-tab-group>
+
+      </div>
+
+    </div>
+
+
+
+  </div>
 </div>
-
-
-
-<!-- Content3 -->
-
-<div *ngIf="enquiry" class="wrapper">
-	<div class="header">
-	 <div class="search-bar">
-	  <input type="text" placeholder="Search">
-	 </div>
-	 <div class="user-settings">
-	  <img class="user-img" src="https://images.unsplash.com/photo-1587918842454-870dbd18261a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=943&q=80" alt="">
-	  <div class="user-name">Thomas</div>
-	  <svg viewBox="0 0 492 492" fill="currentColor">
-	   <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
-	  </svg>
-	  <div class="notify">
-	   <div class="notification"></div>
-	   <svg viewBox="0 0 24 24" fill="currentColor">
-		<path fill-rule="evenodd" clip-rule="evenodd" d="M18.707 8.796c0 1.256.332 1.997 1.063 2.85.553.628.73 1.435.73 2.31 0 .874-.287 1.704-.863 2.378a4.537 4.537 0 01-2.9 1.413c-1.571.134-3.143.247-4.736.247-1.595 0-3.166-.068-4.737-.247a4.532 4.532 0 01-2.9-1.413 3.616 3.616 0 01-.864-2.378c0-.875.178-1.682.73-2.31.754-.854 1.064-1.594 1.064-2.85V8.37c0-1.682.42-2.781 1.283-3.858C7.861 2.942 9.919 2 11.956 2h.09c2.08 0 4.204.987 5.466 2.625.82 1.054 1.195 2.108 1.195 3.745v.426zM9.074 20.061c0-.504.462-.734.89-.833.5-.106 3.545-.106 4.045 0 .428.099.89.33.89.833-.025.48-.306.904-.695 1.174a3.635 3.635 0 01-1.713.731 3.795 3.795 0 01-1.008 0 3.618 3.618 0 01-1.714-.732c-.39-.269-.67-.694-.695-1.173z" />
-	   </svg>
-	  </div>
-	 </div>
-	</div>
-	<div class="main-header anim" style="--delay: 0s">Enquiry Details</div>
-	<div class="main-blogs">
-		</div>
-</div>
-
-
-
-
-<!-- Content4 -->
-
-<div *ngIf="sale" class="wrapper">
-	<div class="header">
-	 <div class="search-bar">
-	  <input type="text" placeholder="Search">
-	 </div>
-	 <div class="user-settings">
-	  <img class="user-img" src="https://images.unsplash.com/photo-1587918842454-870dbd18261a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=943&q=80" alt="">
-	  <div class="user-name">Thomas</div>
-	  <svg viewBox="0 0 492 492" fill="currentColor">
-	   <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
-	  </svg>
-	  <div class="notify">
-	   <div class="notification"></div>
-	   <svg viewBox="0 0 24 24" fill="currentColor">
-		<path fill-rule="evenodd" clip-rule="evenodd" d="M18.707 8.796c0 1.256.332 1.997 1.063 2.85.553.628.73 1.435.73 2.31 0 .874-.287 1.704-.863 2.378a4.537 4.537 0 01-2.9 1.413c-1.571.134-3.143.247-4.736.247-1.595 0-3.166-.068-4.737-.247a4.532 4.532 0 01-2.9-1.413 3.616 3.616 0 01-.864-2.378c0-.875.178-1.682.73-2.31.754-.854 1.064-1.594 1.064-2.85V8.37c0-1.682.42-2.781 1.283-3.858C7.861 2.942 9.919 2 11.956 2h.09c2.08 0 4.204.987 5.466 2.625.82 1.054 1.195 2.108 1.195 3.745v.426zM9.074 20.061c0-.504.462-.734.89-.833.5-.106 3.545-.106 4.045 0 .428.099.89.33.89.833-.025.48-.306.904-.695 1.174a3.635 3.635 0 01-1.713.731 3.795 3.795 0 01-1.008 0 3.618 3.618 0 01-1.714-.732c-.39-.269-.67-.694-.695-1.173z" />
-	   </svg>
-	  </div>
-	 </div>
-	</div>
-	<div class="main-header anim" style="--delay: 0s">Sales Order</div>
-	<div class="main-blogs">
-		</div>
-</div>
-
-
-
-
-<!-- Content5 -->
-
-<div *ngIf="delivery" class="wrapper">
-	<div class="header">
-	 <div class="search-bar">
-	  <input type="text" placeholder="Search">
-	 </div>
-	 <div class="user-settings">
-	  <img class="user-img" src="https://images.unsplash.com/photo-1587918842454-870dbd18261a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=943&q=80" alt="">
-	  <div class="user-name">Thomas</div>
-	  <svg viewBox="0 0 492 492" fill="currentColor">
-	   <path d="M484.13 124.99l-16.11-16.23a26.72 26.72 0 00-19.04-7.86c-7.2 0-13.96 2.79-19.03 7.86L246.1 292.6 62.06 108.55c-5.07-5.06-11.82-7.85-19.03-7.85s-13.97 2.79-19.04 7.85L7.87 124.68a26.94 26.94 0 000 38.06l219.14 219.93c5.06 5.06 11.81 8.63 19.08 8.63h.09c7.2 0 13.96-3.57 19.02-8.63l218.93-219.33A27.18 27.18 0 00492 144.1c0-7.2-2.8-14.06-7.87-19.12z"></path>
-	  </svg>
-	  <div class="notify">
-	   <div class="notification"></div>
-	   <svg viewBox="0 0 24 24" fill="currentColor">
-		<path fill-rule="evenodd" clip-rule="evenodd" d="M18.707 8.796c0 1.256.332 1.997 1.063 2.85.553.628.73 1.435.73 2.31 0 .874-.287 1.704-.863 2.378a4.537 4.537 0 01-2.9 1.413c-1.571.134-3.143.247-4.736.247-1.595 0-3.166-.068-4.737-.247a4.532 4.532 0 01-2.9-1.413 3.616 3.616 0 01-.864-2.378c0-.875.178-1.682.73-2.31.754-.854 1.064-1.594 1.064-2.85V8.37c0-1.682.42-2.781 1.283-3.858C7.861 2.942 9.919 2 11.956 2h.09c2.08 0 4.204.987 5.466 2.625.82 1.054 1.195 2.108 1.195 3.745v.426zM9.074 20.061c0-.504.462-.734.89-.833.5-.106 3.545-.106 4.045 0 .428.099.89.33.89.833-.025.48-.306.904-.695 1.174a3.635 3.635 0 01-1.713.731 3.795 3.795 0 01-1.008 0 3.618 3.618 0 01-1.714-.732c-.39-.269-.67-.694-.695-1.173z" />
-	   </svg>
-	  </div>
-	 </div>
-	</div>
-	<div class="main-header anim" style="--delay: 0s">List of Delivery</div>
-	<div class="main-blogs">
-		</div>
-</div>
-
-
-
-   </div>
-</div>
-

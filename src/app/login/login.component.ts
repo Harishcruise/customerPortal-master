@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+   
   }
 
   hide : Boolean = true;
@@ -31,9 +32,11 @@ export class LoginComponent implements OnInit {
   }
   
   Login(){
+    this.auth.Profile(7);
+    this.auth.Delivery(12);
     console.log(this.LoginForm.value);
     this.auth.LoggedIn(this.LoginForm.value.UserName);
-    this.auth.getLoginRes(parseInt(this.LoginForm.value.UserName),parseInt(this.LoginForm.value.Password));
+    this.auth.getLoginRes(parseInt(this.LoginForm.value.UserName),this.LoginForm.value.Password);
     console.log(this.auth.LogInUserName);
     // if(this.auth.Data.E_RETURN === 'S'){
     //   localStorage.setItem(this.LoginForm.value.UserName,this.LoginForm.value.Password);

@@ -25,7 +25,7 @@ img {
 body {
   font-family: "Inter", sans-serif;
   color: rgba(128, 129, 145, 0.24);
-  background-image: url("https://images.unsplash.com/photo-1445251836269-d158eaa028a6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1951&q=80");
+  background-image: url('../../assets/FN5Jpd.png');
   /* background-image: url(https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80); */
   background-position: center;
   background-size: cover;
@@ -44,7 +44,7 @@ body {
 .bod {
 	font-family: "Inter", sans-serif;
 	color: rgba(128, 129, 145, 0.24);
-	/* background-image: url("https://images.unsplash.com/photo-1445251836269-d158eaa028a6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1951&q=80"); */
+	background-image: url("https://images.unsplash.com/photo-1445251836269-d158eaa028a6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1951&q=80");
 	background-image: url('../../assets/FN5Jpd.png');
 	background-position: center;
 	background-size: cover;
@@ -128,9 +128,26 @@ body:before {
 }
 .sidebar-link:hover, .sidebar-link.is-active {
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
+  background: #ff7551;
+  border-radius: 20px;
 }
-.sidebar-link:hover:nth-child(2n + 1) svg, .sidebar-link.is-active:nth-child(2n + 1) svg {
+.sidebar-link:active{
+  color: #fff;
+  font-weight: 500;
+  background: #ff7551;
+  border-radius: 20px;
+}
+.active{
+  color: #fff;
+  font-weight: 500;
+  background: #ff7551;
+  border-radius: 20px;
+}
+.dis{
+
+}
+/* .sidebar-link:hover:nth-child(2n + 1) svg, .sidebar-link.is-active:nth-child(2n + 1) svg {
   background: #ff7551;
 }
 .sidebar-link:hover:nth-child(2n) svg, .sidebar-link.is-active:nth-child(2n) svg {
@@ -138,7 +155,7 @@ body:before {
 }
 .sidebar-link:hover:nth-child(2n + 3) svg, .sidebar-link.is-active:nth-child(2n + 3) svg {
   background: #6c5ecf;
-}
+} */
 .sidebar.collapse {
   width: 90px;
   border-right: 1px solid var(--border-color);
@@ -341,14 +358,23 @@ body:before {
   color: #fff;
   margin-bottom: 30px;
 }
+.main-blog__title1 {
+  font-size: 50px;
+  max-width: 12ch;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+  margin-bottom: 30px;
+}
 .main-blog {
-  background-image: url("https://assets.codepen.io/3364143/skate-removebg-preview.png");
+  /* background-image: url("https://assets.codepen.io/3364143/skate-removebg-preview.png"); */
   background-size: 80%;
   background-position-x: 150px;
   background-color: #31abbd;
   display: flex;
   flex-direction: column;
   width: 65%;
+  height: 220px;
   padding: 30px;
   border-radius: 20px;
   align-self: stretch;
@@ -360,11 +386,45 @@ body:before {
 .main-blog + .main-blog {
   margin-left: 20px;
   width: 35%;
-  background-image: url(https://c0.anyrgb.com/images/1020/945/venice-beach-2018-outdoors-sport-men-jumping-desert-sunset-extreme-sports-one-person-action.jpg);
-  background-color: unset;
+  /* background-image: url(https://c0.anyrgb.com/images/1020/945/venice-beach-2018-outdoors-sport-men-jumping-desert-sunset-extreme-sports-one-person-action.jpg); */
+  background-color: rgb(252,156,142);
   background-position-x: 0;
   background-size: 139%;
   filter: saturate(1.4);
+  
+}
+.main-blog2{
+  /* margin-left: 20px; */
+  width: 35%;
+  /* background-image: url(https://c0.anyrgb.com/images/1020/945/venice-beach-2018-outdoors-sport-men-jumping-desert-sunset-extreme-sports-one-person-action.jpg); */
+  background-color: #C4D5BE;
+  background-position-x: 0;
+  background-size: 139%;
+  filter: saturate(1.4);
+  border-radius: 20px;
+  height: 220px;
+}
+.main-blog3{
+  margin-left: 20px;
+  width: 35%;
+  /* background-image: url(https://c0.anyrgb.com/images/1020/945/venice-beach-2018-outdoors-sport-men-jumping-desert-sunset-extreme-sports-one-person-action.jpg); */
+  background-color: #ECC5D2;
+  background-position-x: 0;
+  background-size: 139%;
+  filter: saturate(1.4);
+  border-radius: 20px;
+  height: 220px;
+}
+.main-blog4{
+  margin-left: 20px;
+  width: 35%;
+  /* background-image: url(https://c0.anyrgb.com/images/1020/945/venice-beach-2018-outdoors-sport-men-jumping-desert-sunset-extreme-sports-one-person-action.jpg); */
+  background-color: rgb(171,198,244);
+  background-position-x: 0;
+  background-size: 139%;
+  filter: saturate(1.4);
+  border-radius: 20px;
+  height: 220px;
 }
 .main-blog + .main-blog .author-img {
   border-color: rgba(255, 255, 255, 0.75);
@@ -1046,7 +1106,7 @@ section 2 */
 }
 
 .card {
-    border-radius: 20px;
+    border-radius: 20sidpx;
     -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
     box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
     border: none;
@@ -1167,4 +1227,142 @@ p {
     margin: 0 10px 0 0;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+}
+
+
+/* table */
+
+.page {
+  position: relative;
+  display: grid;
+  grid-template-columns: 200px auto;
+  background-image: linear-gradient(-70deg , #f5f7ff, #c7c7c7);
+  height: 600px;
+  width: 80%;
+  margin: 40px 0;
+  border-radius: 80px;
+}
+
+.menu {
+  margin: 20px;
+  border-radius: 60px;
+  box-sizing: border-box;
+  list-style-type: none;
+  height: calc(100% - 40px);
+  width: 160px;
+  background-image: linear-gradient(-40deg , #050b23, #26115f);
+}
+
+.menu a.menu-item {
+  display: block;
+  text-decoration: none;
+}
+
+.menu a.menu-item:hover .icon,
+.menu a.menu-item.active .icon {
+  background-image: linear-gradient(-70deg , #08bfb3, #44e4c4);
+  color: #eee;
+  border-radius: 10px 10px 0 10px;
+  z-index: 2;
+}
+
+.menu a.menu-item:hover .text,
+.menu a.menu-item.active .text {
+  background-image: linear-gradient(-90deg , #2a71e5, #1a71a8);
+  z-index: -1;
+  border-radius: 10px 0 0 10px;
+  width: 54%;
+}
+
+.menu .icon {
+  position: relative;
+  color: #0e8af6;
+  margin: 5px;
+  padding: 10px;
+}
+
+.menu .text {
+  color: #eee;
+  padding: 20px 20px 20px 25px;
+  margin: 0 0 0 -30px;
+}
+
+.menu p {
+  line-height: 24px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.menu a.logo {
+  display: block;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  visibility: hidden;
+}
+
+.main{
+  width:1000px;
+  /* background-color: #070a13; */
+  border-radius: 30px;
+  color: white;
+
+}
+
+.main ul {
+  list-style: none;
+  margin: 20px;
+  padding: 0;
+}
+
+.main ul li {
+  width: 100%;
+  display: flex;
+  /* flex-wrap: wrap; */
+  background: #222222;
+  /* border: 1px solid #eee; */
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border-right: 10px solid #393939;
+}
+
+.main ul li:hover:not(:first-child) {
+  transform: scale(1.1);
+  box-shadow: 3px 5px 12px #555;
+}
+.main ul li:first-child{
+  background-color: #393939;
+  /* color: #209466; */
+  color: white;
+  font-size: large;
+}
+
+.main ul li div:not(:last-child) {
+  border-right: 2px solid #eee;
+}
+
+.main ul li div:nth-child(3){
+  width: 150px;
+}
+
+.main ul li div {
+  padding: 5px 10px;
+  width: 115px;
+}
+
+h2 {
+  max-width: 150px;
+  margin: 10px 20px;
+  padding: 10px 40px;
+  border-bottom: 3px solid #44e4c4;
+}
+
+.mat-tab-label .mat-tab-label-content {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  color: whitesmoke;
+  font-size: large;
 }
