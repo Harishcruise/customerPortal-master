@@ -1,8 +1,23 @@
-import { Component, OnInit,OnChanges, ElementRef, Renderer2, ViewChild, AfterViewInit,SimpleChanges , ViewEncapsulation} from '@angular/core';
+import { Component, OnInit,OnChanges, ElementRef, Renderer2, ViewChild, AfterViewInit,SimpleChanges , ViewEncapsulation,Inject} from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms';
+import {MatDialog,MAT_DIALOG_DATA} from '@angular/material/dialog';
+@Component({
+  selector: 'app-dialog',
+  templateUrl: './dialog.html',
+  // encapsulation: ViewEncapsulation.None
+})
 
+export class AppDialog{
+  Item;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any){
+      console.log(data);
+      this.Item = JSON.parse(JSON.stringify(data.data));
+      console.log(this.Item);
+  }
+}
 
 @Component({
   selector: 'app-landingPage',
@@ -18,6 +33,7 @@ export class LandingPageComponent implements OnInit {
   overview : Boolean =true;
   payment : Boolean = false;
   credit : Boolean = false;
+  invoice : Boolean = false;
   expandBool : Boolean = true;
   expand: string = 'expand_more';
   ProfileData;
@@ -26,13 +42,19 @@ export class LandingPageComponent implements OnInit {
   PaymentData;
   CreditMemoData;
   InquiryData;
+  InvoiceData;
   DeliveryDataArray: any[]=[];
   SaleDataArray: any[]=[];
   PaymentDataArray: any[]=[];
   CreditMemoDataArray: any[]=[];
   DebitMemoDataArray: any[]=[];
   InquiryDataArray: any[]=[];
-  constructor(private auth: AuthService,private router: Router, private resolve:ActivatedRoute,private http: HttpClient) {
+  InvoiceDataArray: any[]=[];
+  ResultForm = this.fb.group({
+    Cust:[''],
+    Doc:[''],
+  })
+  constructor(private auth: AuthService,private router: Router, private resolve:ActivatedRoute,private http: HttpClient,private fb:FormBuilder,private dialog:MatDialog) {
   
   }
   ngOnInit() {
@@ -47,6 +69,17 @@ export class LandingPageComponent implements OnInit {
   exp() {
     this.expandBool = !this.expandBool;
     this.expand = this.expandBool ? 'expand_more' : 'expand_less';
+  }
+  
+  async getResult(){
+    this.InvoiceData = await this.auth.Invoice(12,this.ResultForm.value.Doc).toPromise();
+    console.log(this.InvoiceData.INV_DET.item);
+    this.InvoiceDataArray = [...this.InvoiceData.INV_DET.item];
+    // const dialogRef = this.dialog.open(AppDialog);
+    
+  }
+  getInvoice(data){
+    const dialogRef = this.dialog.open(AppDialog,{data:{data:data}});
   }
 
   async getData(){
@@ -79,6 +112,7 @@ export class LandingPageComponent implements OnInit {
     this.overview=false;
     this.payment=false;
     this.credit=false;
+    this.invoice=false;
   }
   enq(){
     this.profile=false;
@@ -88,6 +122,7 @@ export class LandingPageComponent implements OnInit {
     this.overview=false;
     this.payment=false;
     this.credit=false;
+    this.invoice=false;
   }
   sa(){
     this.profile=false;
@@ -97,6 +132,7 @@ export class LandingPageComponent implements OnInit {
     this.overview=false;
     this.payment=false;
     this.credit=false;
+    this.invoice=false;
   }
   deli(){
     this.profile=false;
@@ -106,6 +142,7 @@ export class LandingPageComponent implements OnInit {
     this.overview=false;
     this.payment=false;
     this.credit=false;
+    this.invoice=false;
   }
   over(){
     this.profile=false;
@@ -115,6 +152,7 @@ export class LandingPageComponent implements OnInit {
     this.overview=true;
     this.payment=false;
     this.credit=false;
+    this.invoice=false;
 
   }
   pay(){
@@ -125,6 +163,7 @@ export class LandingPageComponent implements OnInit {
     this.overview=false;
     this.payment=true;
     this.credit=false;
+    this.invoice=false;
   }
   cred(){
     this.profile=false;
@@ -134,7 +173,19 @@ export class LandingPageComponent implements OnInit {
     this.overview=false;
     this.payment=false;
     this.credit=true;
+    this.invoice=false;
+  }
+  inv(){
+    this.profile=false;
+    this.enquiry=false;
+    this.sale=false;
+    this.delivery=false;
+    this.overview=false;
+    this.payment=false;
+    this.credit=false;
+    this.invoice=true;
   }
 
 
 }
+

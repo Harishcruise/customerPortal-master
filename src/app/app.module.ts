@@ -30,9 +30,12 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatDialogModule} from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { ToastrModule } from 'ngx-toastr';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AppDialog } from './landingPage/landingPage.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -40,7 +43,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     AppComponent,
     LandingPageComponent,
     LoginComponent,
-    HomePageComponent
+    HomePageComponent,
+    AppDialog
    ],
   imports: [
     BrowserModule,
@@ -52,7 +56,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MdbCollapseModule,
     MdbDropdownModule,
     MdbFormsModule,
-    MdbModalModule,
     MdbPopoverModule,
     MdbRadioModule,
     MdbRangeModule,
@@ -68,9 +71,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatIconModule,
     MatTabsModule,
     MatSnackBarModule,
-    ToastrModule.forRoot(
-      // {positionClass :'toast-bottom-right'}
-      ),
+    MdbModalModule,
+    MatDialogModule,
+    MatDividerModule
   ],
   providers: [
     AuthGuardGuard,AuthService,LoginGuardGuard,LoginComponent],

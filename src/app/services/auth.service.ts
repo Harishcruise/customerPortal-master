@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { forkJoin, Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
@@ -13,7 +12,7 @@ import {
 })
 export class AuthService {
 
-  constructor(private http: HttpClient,private router: Router,private toast: ToastrService,private snack:MatSnackBar) {
+  constructor(private http: HttpClient,private router: Router,private snack:MatSnackBar) {
    }
   LogInUserName : string='' ;
   baseUrl : string='http://localhost:3000/login';
@@ -50,6 +49,11 @@ export class AuthService {
   Inquiry(CustId: Number):Observable<any>{
     return this.http.post('http://localhost:3000/inquiry',{username:CustId})
   }
+
+  Invoice(CustId: Number, DocNum: string):Observable<any>{
+    return this.http.post('http://localhost:3000/invoice',{username:CustId,password:DocNum})
+  }
+
 
 
   getLoginRes(user: Number , password: Number ){
