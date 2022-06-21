@@ -54,15 +54,23 @@ export class LandingPageComponent implements OnInit {
     Cust:[''],
     Doc:[''],
   })
+
+  
   constructor(private auth: AuthService,private router: Router, private resolve:ActivatedRoute,private http: HttpClient,private fb:FormBuilder,private dialog:MatDialog) {
   
   }
+  today = new Date();
+  dd = String(this.today.getDate()).padStart(2, '0');
+  mm = String(this.today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  yyyy = this.today.getFullYear();
+  day = this.mm + '-' + this.dd + '-' + this.yyyy;
   ngOnInit() {
     // this.auth.init(12).subscribe(([res1,res2])=>{
     //   this.ProfileData=JSON.parse(JSON.stringify(res1));
     //   this.DeliveryData=JSON.parse(JSON.stringify(res2));
     // })
     this.getData();
+    console.log(this.day);
     // this.render=true; 
   }
 

@@ -21,11 +21,10 @@ const routes: Routes = [
   {
     path:'main',
     component:HomePageComponent,
-    canActivate:[AuthGuardGuard]
   },
   {
     path:'',
-    redirectTo: '/home',
+    redirectTo: '/main',
     pathMatch: 'full',
   }
 ];
