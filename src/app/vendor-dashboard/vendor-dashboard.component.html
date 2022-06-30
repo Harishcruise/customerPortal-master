@@ -47,7 +47,7 @@
               <path d="M14 24L22 24" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
                 fill="white"></path>
             </svg>
-            Enquiry Detail
+            Goods Receipt
           </a>
           <a class="sidebar-link cursor-pointer" [ngClass]="sale ? 'active' : 'dis'" (click)="sa()">
             <svg style="color: white" width="30" height="30" viewBox="0 0 48 48" fill="none"
@@ -62,7 +62,7 @@
               <path d="M16 26V30" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
                 fill="white"></path>
             </svg>
-            Sales Order
+            Purchase Order
           </a>
           <a class="sidebar-link cursor-pointer" [ngClass]="delivery ? 'active' : 'dis'" (click)="deli()">
             <svg style="color: white" width="30" height="30" stroke-width="1.5" viewBox="0 0 24 24" fill="none"
@@ -80,7 +80,7 @@
                 d="M15 9H20.6101C20.8472 9 21.0621 9.13964 21.1584 9.35632L22.9483 13.3836C22.9824 13.4604 23 13.5434 23 13.6273V16.4C23 16.7314 22.7314 17 22.4 17H20.5"
                 stroke="currentColor" stroke-linecap="round" />
               <path d="M15 17H16" stroke="currentColor" stroke-linecap="round" /> </svg>
-            List of Delivery
+            Request for Quotation
           </a>
           <a class="sidebar-link cursor-pointer" [ngClass]="payment ? 'active' : 'dis'" (click)="pay()">
             <svg style="color: white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -146,7 +146,7 @@
         </div>
         <div class="user-settings">
           <img class="user-img" src="../../assets/pngwing.com.png" alt="">
-          <div class="user-name">{{ ProfileData.IT_OUTPUT.NAME1 }}</div>
+          <div class="user-name">{{ ProfileData.VEND_PROFILE.FNAME }}</div>
           <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <mat-icon>{{expand}}</mat-icon>
           </button>
@@ -171,7 +171,7 @@
         <div class="main-header anim" style="--delay: 0s">Overview</div>
         <div class="main-blogs">
           <div class="main-blog anim" style="--delay: .1s">
-            <div class="main-blog__title2 mt-2">Hello {{ ProfileData.IT_OUTPUT.NAME1 }} </div>
+            <div class="main-blog__title2 mt-2">Hello {{ ProfileData.VEND_PROFILE.FNAME }} </div>
             <div class="main-blog__author">
               <div class="main-blog__title mt-6">No. of Credit Memo records:</div>
               <div class="main-blog__title1 mt-6">{{CreditMemoDataArray.length}}</div>
@@ -181,30 +181,30 @@
           </div>
           <div class="main-blog anim" style="--delay: .2s">
             <div class="main-blog__author mt-4">
-              <div class="main-blog__title mt-10 ml-6">No. of Sales Order:</div>
-              <div class="main-blog__title1 mt-4">{{SaleDataArray.length}}</div>
+              <div class="main-blog__title mt-10 ml-6">No. of Purchase Order:</div>
+              <div class="main-blog__title1 mt-4">{{PurchaseDataArray.length}}</div>
             </div>
           </div>
         </div>
         <div class="main-blogs mt-8">
           <div class="main-blog2 anim" style="--delay: .2s">
             <div class="main-blog__author mt-10">
-              <div class="main-blog__title mt-10 ml-6">No. of Inquiry Details:</div>
-              <div class="main-blog__title1 mt-10">{{InquiryDataArray.length}}</div>
+              <div class="main-blog__title mt-10 ml-6">No. of Request for Quotation:</div>
+              <div class="main-blog__title1 mt-10">{{RfqDataArray.length}}</div>
             </div>
           </div>
 
           <div class="main-blog3 anim" style="--delay: .2s">
             <div class="main-blog__author mt-10">
-              <div class="main-blog__title mt-10 ml-6">No. of Deliveries:</div>
-              <div class="main-blog__title1 mt-10">{{DeliveryDataArray.length}}</div>
+              <div class="main-blog__title mt-10 ml-6">No. of Goods Receipt:</div>
+              <div class="main-blog__title1 mt-10">{{GoodsDataArray.length}}</div>
             </div>
           </div>
 
           <div class="main-blog4 anim" style="--delay: .2s">
             <div class="main-blog__author mt-10">
               <div class="main-blog__title mt-10 ml-6">No. of Payment Details:</div>
-              <div class="main-blog__title1 ml-4 mt-10">{{PaymentDataArray.length}}</div>
+              <div class="main-blog__title1 ml-4 mt-10">{{PaymentDataOpenArray.length}}</div>
             </div>
           </div>
         </div>
@@ -223,7 +223,7 @@
                 <div class="ml-2">
                   <img src="../../assets/pngwing.com.png">
                 </div>
-                <h6 class="font-extrabold mt-5">{{ ProfileData.IT_OUTPUT.NAME1 }}</h6>
+                <h6 class="font-extrabold mt-5">{{ ProfileData.VEND_PROFILE.FNAME }}</h6>
                 <!-- <p>Web Designer</p> -->
                 <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
               </div>
@@ -233,23 +233,23 @@
                 <h1 class=" b-b-default f-w-600 text-zinc-800">Information</h1>
                 <div class="row mt-16">
                   <div class="col-sm-6">
-                    <h3 class="m-b-10 f-w-600 text-zinc-800">Customer ID</h3>
-                    <h3 class="text-muted f-w-400">{{ ProfileData.IT_OUTPUT.KUNNR }}</h3>
+                    <h3 class="m-b-10 f-w-600 text-zinc-800">Vendor ID</h3>
+                    <h3 class="text-muted f-w-400">{{ ProfileData.VEND_PROFILE.FNAME }}</h3>
                   </div>
                   <div class="col-sm-6">
                     <h3 class="m-b-10 f-w-600 text-zinc-800">Phone</h3>
-                    <h3 class="text-muted f-w-400">{{ ProfileData.IT_OUTPUT.TELF1 }}</h3>
+                    <h3 class="text-muted f-w-400">{{ ProfileData.VEND_PROFILE.TELEPHONE }}</h3>
                   </div>
                 </div>
                 <!-- <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6> -->
                 <div class="row mt-16">
                   <div class="col-sm-6">
                     <h3 class="m-b-10 f-w-600 text-zinc-800">Address</h3>
-                    <h3 class="text-muted f-w-400">{{ ProfileData.IT_OUTPUT.ORT01 }}</h3>
+                    <h3 class="text-muted f-w-400">{{ ProfileData.VEND_PROFILE.ADDRESS }}</h3>
                   </div>
                   <div class="col-sm-6">
                     <h3 class="m-b-10 f-w-600 text-zinc-800">Pin Code</h3>
-                    <h3 class="text-muted f-w-400">{{ ProfileData.IT_OUTPUT.PSTLZ }}</h3>
+                    <h3 class="text-muted f-w-400">{{ ProfileData.VEND_PROFILE.PINCODE }}</h3>
                   </div>
                 </div>
               </div>
@@ -264,98 +264,201 @@
       <!-- content3 -->
 
       <div *ngIf="enquiry" class="main-container">
-        <div class="main-header anim" style="--delay: 0s">Enquiry Details</div>
+        <div class="main-header anim" style="--delay: 0s">Goods Receipt</div>
+        <mat-tab-group class="main anim" style="--delay: 0.1s" mat-align-tabs="center">
+          <mat-tab label="Goods header">
         <section class="main anim" style="--delay: 0.1s">
           <ul>
             <li>
-              <div>Document Number</div>
-              <div>Record Created Date</div>
-              <div>Created By</div>
-              <div>Inquiry valid from</div>
-              <div>Bid valid from</div>
-              <div>Product Proposal valid from</div>
-              <div>Requested Delivery Date</div>
-              <div>Indicator</div>
+              <div>Material Document</div>
+              <div>Doc Year</div>
+              <div>Posting Date</div>
+              <div>Entry Time</div>
+              <div>Type</div>
+              <div>Username</div>
+              <div>Vendor slip</div>
+              <!-- <div>Indicator</div> -->
             </li>
-            <li *ngFor="let data of InquiryDataArray">
-              <div>{{data.VBELN}}</div>
-              <div>{{data.ERDAT}}</div>
-              <div>{{data.ERNAM}}</div>
-              <div>{{data.ANGDT}}</div>
-              <div>{{data.BNDDT}}</div>
-              <div>{{data.GUEBG}}</div>
-              <div>{{data.VDATU}}</div>
-              <div>{{data.AUTLF}}</div>
+            <li *ngFor="let data of GoodsDataArray">
+              <div>{{data.MAT_DOC}}</div>
+              <div>{{data.DOC_YEAR}}</div>
+              <div>{{data.PSTNG_DATE}}</div>
+              <div>{{data.ENTRY_TIME}}</div>
+              <div>{{data.TR_EV_TYPE}}</div>
+              <div>{{data.USERNAME}}</div>
+              <div>{{data.VER_GR_GI_SLIP}}</div>
+              <!-- <div>{{data.AUTLF}}</div> -->
             </li>
           </ul>
         </section>
+      </mat-tab>
+
+      <mat-tab label="Goods Value">
+        <section class="main anim" style="--delay: 0.1s">
+          <ul>
+            <li>
+              <div>Material Document</div>
+              <div>Doc Year</div>
+              <div>Currency</div>
+              <div>Movement Type</div>
+              <div>Line Id</div>
+              <div>Material Document Item</div>
+              <div>Material</div>
+              <!-- <div>Indicator</div> -->
+            </li>
+            <li *ngFor="let data of GoodsItemArray">
+              <div>{{data.MAT_DOC}}</div>
+              <div>{{data.DOC_YEAR}}</div>
+              <div>{{data.CURRENCY}}</div>
+              <div>{{data.MOVE_TYPE}}</div>
+              <div>{{data.LINE_ID}}</div>
+              <div>{{data.MATDOC_ITM}}</div>
+              <div>{{data.MATERIAL  | number}}</div>
+              <!-- <div>{{data.AUTLF}}</div> -->
+            </li>
+          </ul>
+        </section>
+
+      </mat-tab>
+    </mat-tab-group>
       </div>
 
 
       <!-- content 4 -->
       <div *ngIf="sale" class="main-container">
-        <div class="main-header anim" style="--delay: 0s">Sales Order</div>
+        <div class="main-header anim" style="--delay: 0s">Purchase Order</div>
+        <mat-tab-group class="main anim" style="--delay: 0.1s" mat-align-tabs="center">
+          <mat-tab label="Purchase Order Header">
         <section class="main anim" style="--delay: 0.1s">
           <ul>
             <li>
-              <div>DOC Number</div>
-              <div>Creation Date</div>
-              <div>Unit Of Measure</div>
-              <div>Currency</div>
-              <div>Document Type</div>
-              <div>Document Status</div>
-              <div>Item Number</div>
-              <div>Net Value</div>
+              <div>Purchase Doc Number</div>
+              <div>Purchase Organisation</div>
+              <div>Purchase Group</div>
+              <div>Created On</div>
+              <div>Created By</div>
+              <div>Doc Condition</div>
+              <div>Doc Type</div>
+              <div>Doc Category</div>
               <!-- <div>Purchase Number</div>
 					<div>Required Quantity</div>
 					<div>Sales Organization</div> -->
             </li>
-            <li *ngFor="let data of SaleDataArray">
-              <div>{{data.SD_DOC}}</div>
-              <div>{{data.CREATION_DATE}}</div>
-              <div>{{data.BASE_UOM}}</div>
-              <div>{{data.CURRENCY}}</div>
+            <li *ngFor="let data of PurchaseDataArray">
+              <div>{{data.PO_NUMBER}}</div>
+              <div>{{data.PURCH_ORG}}</div>
+              <div>{{data.PUR_GROUP}}</div>
+              <div>{{data.CREATED_ON}}</div>
+              <div>{{data.CREATED_BY}}</div>
+              <div>{{data.DOC_COND}}</div>
               <div>{{data.DOC_TYPE}}</div>
-              <div>{{data.DOC_STATUS}}</div>
-              <div>{{data.ITM_NUMBER}}</div>
-              <div>{{data.NET_VALUE}}</div>
+              <div>{{data.DOC_CAT}}</div>
               <!-- <div>{{data.PURCH_NO}}</div>
 					<div>{{data.REQ_QTY}}</div>
 					<div>{{data.SALES_ORG}}</div> -->
             </li>
           </ul>
         </section>
+        </mat-tab>
+
+        <mat-tab label="Purchase Order Item">
+          <section class="main anim" style="--delay: 0.1s">
+            <ul>
+              <li>
+                <div>Purchase Doc Number</div>
+                <div>Purchase Item</div>
+                <div>Info Record</div>
+                <div>Company Code</div>
+                <div>Gross Value</div>
+                <div>Material Group</div>
+                <div>Material Type</div>
+                <div>Quantity</div>
+                <!-- <div>Purchase Number</div>
+            <div>Required Quantity</div>
+            <div>Sales Organization</div> -->
+              </li>
+              <li *ngFor="let data of PurchaseOrderItemArray">
+                <div>{{data.PO_NUMBER}}</div>
+                <div>{{data.PO_ITEM}}</div>
+                <div>{{data.INFO_REC}}</div>
+                <div>{{data.CO_CODE}}</div>
+                <div>{{data.GROS_VALUE}}</div>
+                <div>{{data.MAT_GRP}}</div>
+                <div>{{data.MAT_TYPE}}</div>
+                <div>{{data.QUANTITY}}</div>
+                <!-- <div>{{data.PURCH_NO}}</div>
+            <div>{{data.REQ_QTY}}</div>
+            <div>{{data.SALES_ORG}}</div> -->
+              </li>
+            </ul>
+          </section>
+          </mat-tab>
+        </mat-tab-group>
       </div>
 
       <!-- content 5 -->
 
 
       <div *ngIf="delivery" class="main-container">
-        <div class="main-header anim" style="--delay: 0s">Delivery Details</div>
+        <div class="main-header anim" style="--delay: 0s">Request for Quotation</div>
+        <mat-tab-group class="main anim" style="--delay: 0.1s" mat-align-tabs="center">
+          <mat-tab label="Request of Quotation header">
         <section class="main anim" style="--delay: 0.1s">
           <ul>
             <li>
-              <div>Distribution Number</div>
-              <div>Time</div>
-              <div>Record Created On</div>
-              <div>Sales Org</div>
-              <div>Delivery Type</div>
-              <div>Delivery Date</div>
-              <div>IncoTerms</div>
-              <div>Time Of Delivery</div>
+              <div>Customer Number</div>
+              <div>Vendor</div>
+              
+              <div>Exchange rate</div>
+              <div>Created On</div>
+              <div>Procedure</div>
+              <div>Purchase group</div>
+              <div>Company code</div>
+              <div>Cash discount days</div>
             </li>
-            <li *ngFor="let data of DeliveryDataArray">
-              <div>{{data.VBELN}}</div>
-              <div>{{data.ERZET}}</div>
-              <div>{{data.ERDAT}}</div>
-              <div>{{data.VKORG}}</div>
-              <div>{{data.LFART}}</div>
-              <div>{{data.LFDAT_V}}</div>
-              <div>{{data.INCO2}}</div>
-              <div>{{data.LFUHR}}</div>
+            <li *ngFor="let data of RfqDataArray">
+              <div>{{data.CUSTOMER | number}}</div>
+              <div>{{data.VENDOR | number}}</div>
+              
+              <div>{{data.EXCH_RATE}}</div>
+              <div>{{data.CREATED_ON}}</div>
+              <div>{{data.PROCEDURE}}</div>
+              <div>{{data.PUR_GROUP}}</div>
+              <div>{{data.CO_CODE}}</div>
+              <div>{{data.DSCNT1_TO}}</div>
             </li>
           </ul>
         </section>
+      </mat-tab>
+      <mat-tab label="Request of Quotation item">
+        <section class="main anim" style="--delay: 0.1s">
+          <ul>
+            <li>
+              <div>Purchase Doc Number</div>
+              <div>Material</div>
+              
+              <div>Gross value</div>
+              <div>Material Type</div>
+              <div>Material Group</div>
+              <div>Company Code</div>
+              <div>Weight Unit</div>
+              <div>Target Quantity</div>
+            </li>
+            <li *ngFor="let data of RfqItemArray">
+              <div>{{data.PO_NUMBER}}</div>
+              <div>{{data.MATERIAL | number}}</div>
+              
+              <div>{{data.GROS_VALUE}}</div>
+              <div>{{data.MAT_TYPE}}</div>
+              <div>{{data.MAT_GRP}}</div>
+              <div>{{data.CO_CODE}}</div>
+              <div>{{data.WEIGHTUNIT}}</div>
+              <div>{{data.TARGET_QTY}}</div>
+            </li>
+          </ul>
+        </section>
+      </mat-tab>
+      </mat-tab-group>
       </div>
 
 
@@ -368,25 +471,25 @@
           <ul>
             <li>
               <!-- <div>Company Code</div> -->
-              <div>Customer Id</div>
-              <div>Sales DOC Number</div>
-              <div>Account DOC Number</div>
-              <div>Billing Date</div>
-              <div>Due Date</div>
-              <div>Aging Date</div>
-              <div>Payment Status</div>
+              <div>Doc Number</div>
+              <div>Company code</div>
               <div>Amount</div>
+              <div>Baseline Date</div>
+              <div>Currency Type</div>
+              <div>Object Type</div>
+              <div>Current Date</div>
+              <div>Pay Aging</div>
             </li>
-            <li *ngFor="let data of paymentDataArray3">
+            <li *ngFor="let data of PaymentDataOpenArray">
               <!-- <div>{{data.COMP_CODE}}</div> -->
-              <div>{{data.KUNNR}}</div>
-              <div>{{data.VBEL2}}</div>
-              <div>{{data.BELNR}}</div>
-              <div>{{data.ZFBDT}}</div>
-              <div>{{data.MADAT}}</div>
-              <div>{{data.PSWSL}}</div>
-              <div>{{data.PARGB}}</div>
-              <div>{{data.WRBTR}}</div>
+              <div>{{data.DOC_NO}}</div>
+              <div>{{data.COMP_CODE}}</div>
+              <div>{{data.AMOUNT}}</div>
+              <div>{{data.BLINE_DATE}}</div>
+              <div>{{data.CURRENCY}}</div>
+              <div>{{data.OBJ_TYPE}}</div>
+              <div>{{dateString}}</div>
+              <div>{{data.DRAWEE}}</div>
             </li>
           </ul>
         </section>
@@ -398,57 +501,56 @@
         <div class="main-header anim" style="--delay: 0s">Credit/Debit Memo Details</div>
         <mat-tab-group class="main anim" style="--delay: 0.1s" mat-align-tabs="center">
           <mat-tab label="Credit Details">
-            <section class="main">
+            <section class="main anim" style="--delay: 0.1s">
               <ul>
                 <li>
 
+                  <div>Material</div>
+                  <div>Quantity</div>
+                  <div>Unit Of Measure</div>
                   <div>Account Number</div>
+                  <div>Fiscal Year</div>
                   <div>Line Items</div>
                   <div>Amount</div>
-                  <div>Fiscal Year</div>
                   <div>Account Type</div>
-                  <div>Customer</div>
-                  <div>Quantity</div>
-                  <div>Indicator</div>
                 </li>
                 <li *ngFor="let data of CreditMemoDataArray">
 
+                  <div>{{data.MATNR | number}}</div>
+                  <div>{{data.MENGE}}</div>
+                  <div>{{data.MEINS}}</div>
                   <div>{{data.BELNR}}</div>
+                  <div>{{data.GJAHR}}</div>
                   <div>{{data.BUZEI}}</div>
                   <div>{{data.DMBTR}}</div>
-                  <div>{{data.GJAHR}}</div>
                   <div>{{data.KOART}}</div>
-                  <div>{{data.KUNNR}}</div>
-                  <div>{{data.MENGE}}</div>
-                  <div>{{data.XBILK}}</div>
                 </li>
               </ul>
             </section>
           </mat-tab>
           <mat-tab label="Debit Details" style="color:white ;">
-            <section class="main">
+            <section class="main anim" style="--delay: 0.1s">
               <ul>
                 <li>
-
+                  <div>Material</div>
+                  <div>Quantity</div>
+                  <div>Unit Of Measure</div>
                   <div>Account Number</div>
+                  <div>Fiscal Year</div>
                   <div>Line Items</div>
                   <div>Amount</div>
-                  <div>Fiscal Year</div>
                   <div>Account Type</div>
-                  <div>Customer</div>
-                  <div>Quantity</div>
-                  <div>Indicator</div>
                 </li>
                 <li *ngFor="let data of DebitMemoDataArray">
 
+                  <div>{{data.MATNR | number}}</div>
+                  <div>{{data.MENGE}}</div>
+                  <div>{{data.MEINS}}</div>
                   <div>{{data.BELNR}}</div>
+                  <div>{{data.GJAHR}}</div>
                   <div>{{data.BUZEI}}</div>
                   <div>{{data.DMBTR}}</div>
-                  <div>{{data.GJAHR}}</div>
                   <div>{{data.KOART}}</div>
-                  <div>{{data.KUNNR}}</div>
-                  <div>{{data.MENGE}}</div>
-                  <div>{{data.XBILK}}</div>
                 </li>
               </ul>
             </section>
@@ -464,40 +566,36 @@
         <div class="main-header anim" style="--delay: 0s">Invoice</div>
         <div [formGroup]="ResultForm" class="flex anim" style="--delay: 0s">
           <!-- <div class="search-bar1">
-            <div class="text-xl mr-6 text-cyan-50">Customer Number:</div>
-            <input formControlName="Cust" id="CustomerId" name="CustomerId" type="text" placeholder="Search">
-          </div> -->
-          <div class="search-bar1">
             <div class="text-xl mr-6 text-cyan-50">Document Number:</div>
             <input formControlName="Doc" id="DocNumber" name="DocNumber" type="text" placeholder="Search">
           </div>
-          <button type="button" (click)="getResult()"
+          <button type="button"
             class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-2 py-2 text-center mr-2 mb-2">Get
-            Results</button>
+            Results</button> -->
         </div>
         <section class="main anim" style="--delay: 0.1s">
           <ul>
             <li>
               <!-- <div>Company Code</div> -->
-              <div>Account Doc No</div>
-              <div>Sales Document Number</div>
-              <div>Company Code</div>
-              <div>Indicator</div>
-              <div>Local Currency Amount</div>
-              <div>Document Currency Amount</div>
-              <div>Baseline Date</div> 
+              <div>Doc Number</div>
+              <div>Document Date</div>
+              <div>Posting Date</div>
+              <div>Time of Entry</div>
+              <div>Gross Invoice</div>
+              <div>Cash Discount</div>
+              <div>Days net</div> 
               <div>Currency type</div>
             </li>
-            <li (click)="getInvoice(data)" *ngFor="let data of InvoiceDataArray" >
+            <li (click)="getInvdata(data.BELNR)"  *ngFor="let data of InvoiceListDataArray" >
               <!-- <div>{{data.COMP_CODE}}</div> -->
               <div>{{data.BELNR}}</div>
-              <div>{{data.VBEL2}}</div>
-              <div>{{data.BUKRS}}</div>
-              <div>{{data.SHKZG}}</div>
-              <div>{{data.DMBTR}}</div>
-              <div>{{data.WRBTR}}</div>
-              <div>{{data.ZFBDT}}</div>    
-              <div>{{data.PSWSL}}</div>
+              <div>{{data.BLDAT}}</div>
+              <div>{{data.BUDAT}}</div>
+              <div>{{data.CPUTM}}</div>
+              <div>{{data.RMWWR}}</div>
+              <div>{{data.ZBD1P}}</div>
+              <div>{{data.ZBD3T}}</div>    
+              <div>{{data.WAERS}}</div>
             </li>
           </ul>
         </section>
@@ -513,3 +611,4 @@
 
   </div>
 </div>
+

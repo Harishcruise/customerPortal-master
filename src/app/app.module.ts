@@ -35,16 +35,26 @@ import { Observable } from 'rxjs';
 import { ToastrModule } from 'ngx-toastr';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AppDialog } from './landingPage/landingPage.component';
+import { AppVendorDialog } from './vendor-dashboard/vendor-dashboard.component'
 import {MatDividerModule} from '@angular/material/divider';
+import { VendorLoginComponent } from './Vendor-login/Vendor-login.component';
+import { VendorDashboardComponent } from './vendor-dashboard/vendor-dashboard.component';
+import { EmployeeLoginComponent } from './employee-login/employee-login.component';
+import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 
 
 @NgModule({
-  declarations: [	
+  declarations: [					
     AppComponent,
     LandingPageComponent,
     LoginComponent,
     HomePageComponent,
-    AppDialog
+    AppDialog,
+      VendorLoginComponent,
+      VendorDashboardComponent,
+      AppVendorDialog,
+      EmployeeLoginComponent,
+      EmployeeDashboardComponent
    ],
   imports: [
     BrowserModule,

@@ -5,9 +5,18 @@ import { LandingPageComponent } from './landingPage/landingPage.component';
 import { AuthGuardGuard } from './guard/auth-guard.guard';
 import { LoginGuardGuard } from './guard/login-guard.guard';
 import { HomePageComponent } from './homePage/homePage.component';
-
+import { VendorLoginComponent } from './Vendor-login/Vendor-login.component';
+import { VendorDashboardComponent } from './vendor-dashboard/vendor-dashboard.component';
 
 const routes: Routes = [
+  {
+    path:'vendorLogin',
+    component:VendorLoginComponent,
+  },
+  {
+    path:'vendorDashboard',
+    component:VendorDashboardComponent,
+  },
   {
     path:'home',
     component:LandingPageComponent,

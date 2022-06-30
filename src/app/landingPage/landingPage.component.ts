@@ -4,6 +4,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
 import {MatDialog,MAT_DIALOG_DATA} from '@angular/material/dialog';
+import jsPDF from 'jspdf';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import htmlToPdfmake from 'html-to-pdfmake';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.html',
@@ -11,11 +16,24 @@ import {MatDialog,MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 
 export class AppDialog{
+  title = 'htmltopdf';
+  @ViewChild('pdfTable') pdfTable!: ElementRef;
   Item;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any){
       console.log(data);
       this.Item = JSON.parse(JSON.stringify(data.data));
       console.log(this.Item);
+  }
+  downloadAsPDF() {
+    const doc = new jsPDF();
+   
+    const pdfTable = this.pdfTable.nativeElement;
+   
+    var html = htmlToPdfmake(pdfTable.innerHTML);
+     console.log(html);
+    const documentDefinition = { content: html };
+    pdfMake.createPdf(documentDefinition).open(); 
+     
   }
 }
 
@@ -43,6 +61,11 @@ export class LandingPageComponent implements OnInit {
   CreditMemoData;
   InquiryData;
   InvoiceData;
+  payementData2;
+  // accType;
+  // credetType;
+  paymentDataArray2: any[]=[];
+  paymentDataArray3: any[]=[];
   DeliveryDataArray: any[]=[];
   SaleDataArray: any[]=[];
   PaymentDataArray: any[]=[];
@@ -63,7 +86,9 @@ export class LandingPageComponent implements OnInit {
   dd = String(this.today.getDate()).padStart(2, '0');
   mm = String(this.today.getMonth() + 1).padStart(2, '0'); //January is 0!
   yyyy = this.today.getFullYear();
-  day = this.mm + '-' + this.dd + '-' + this.yyyy;
+  livedate = this.today.toLocaleDateString();
+  time;
+  day;
   ngOnInit() {
     // this.auth.init(12).subscribe(([res1,res2])=>{
     //   this.ProfileData=JSON.parse(JSON.stringify(res1));
@@ -83,6 +108,29 @@ export class LandingPageComponent implements OnInit {
     this.InvoiceData = await this.auth.Invoice(12,this.ResultForm.value.Doc).toPromise();
     console.log(this.InvoiceData.INV_DET.item);
     this.InvoiceDataArray = [...this.InvoiceData.INV_DET.item];
+    this.InvoiceDataArray.map((value)=>{
+        if(value.SHKZG === 'S'){
+            value.PARGB = "Credit";
+        }
+        else if(value.SHKZG === 'H')
+        value.PARGB = "Debit";
+
+        if(value.KOART === 'A'){
+          value.DIEKZ = "Assets"
+        }
+        else if(value.KOART === 'D'){
+          value.DIEKZ = "Customers"
+        }
+        else if(value.KOART === 'K'){
+          value.DIEKZ = "Vendors"
+        }
+        else if(value.KOART === 'M'){
+          value.DIEKZ = "Material"
+        }
+        else if(value.KOART === 'S'){
+          value.DIEKZ = "G/L Account"
+        }
+    })
     // const dialogRef = this.dialog.open(AppDialog);
     
   }
@@ -97,6 +145,7 @@ export class LandingPageComponent implements OnInit {
     this.PaymentData = await this.auth.Payment(12).toPromise();
     this.CreditMemoData = await this.auth.Credit(12).toPromise();
     this.InquiryData = await this.auth.Inquiry(12).toPromise();
+    this.payementData2 = await this.auth.Invoice(12,this.ResultForm.value.Doc).toPromise(); 
     console.log(this.ProfileData,this.DeliveryData,this.SaleData,this.PaymentData,this.CreditMemoData,this.InquiryData,this.DebitMemoDataArray.length);
     this.DeliveryDataArray = [...this.DeliveryData.IT_DELIVERY.item];
     this.SaleDataArray = [...this.SaleData.E_SALESORDER.item];
@@ -104,12 +153,39 @@ export class LandingPageComponent implements OnInit {
     this.CreditMemoDataArray = [...this.CreditMemoData.IT_CRE.item];
     this.DebitMemoDataArray = [...this.CreditMemoData.IT_DEB.item];
     this.InquiryDataArray = [...this.InquiryData.INQ_DET.item];
+    this.paymentDataArray2 = [...this.payementData2.INV_DET.item];
+    this.paymentDataArray2.map((value)=>{
+      console.log(value);
+        if(value.KOART==='S')  {
+          this.paymentDataArray3.push(value);
+        }
+    })
+    this.paymentDataArray3.map((value)=>{
+      if(value.PSWSL === "EUR"){
+        var due_date = new Date(value.MADAT);
+        this.time = this.today.getTime() - due_date.getTime();
+        this.day = this.time / (1000 * 3600 * 24);
+        if(Math.floor(this.day)>0){
+
+          value.PSWSL = Math.floor(this.day);
+
+        }
+      }
+      if(value.SHKZG === 'H' ){
+        value.PARGB = "Completed"
+      }
+      else if(value.SHKZG === 'S'){
+        value.PARGB = "Exceeded"
+      }
+    })
+    console.log(this.paymentDataArray3);
+
   }
 
   
   LogOut(){
     sessionStorage.clear();
-    this.router.navigate(["/login"])
+    this.router.navigate(["/main"])
     
   }
   prof(){

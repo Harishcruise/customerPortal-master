@@ -1,0 +1,218 @@
+<style>
+    
+	/* @page {
+  bleed: 1cm;
+  size: A4 portrait;
+      size:  auto;   
+      margin-left: 0mm;  
+      margin-bottom: 0mm;
+      margin-top: 0mm;
+}
+
+@media print {
+  .page {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+} */
+
+body {
+   background: #eee;
+   font-familly: roboto;
+   -webkit-print-color-adjust: exact !important;
+}
+
+div.container {
+   border-radius: 15px;
+   background: white;
+   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+div.invoice-letter{
+   width: auto;
+   position: relative;
+   min-height: 150px;
+   background-color: #04617B;
+   margin-right: -48px;;
+   margin-left: -48px;
+   box-shadow: 0 4px 3px rgba(0,0,0,0.4);
+}
+
+div.letter-title{
+   margin-top: 10px;
+   height: 130px;
+   border-right: 2px solid #eee;
+}
+
+div.letter-content{
+   margin-top: 10px;
+}
+
+table.invoice thead th{
+   background-color: rgba(4, 97, 123, 0.2);
+   border-top: none;
+}
+
+table.invoice thead tr:first-child th:first-child{
+    border-top-left-radius: 25px;
+}
+
+table.invoice thead tr:first-child th:last-child{
+   border-top-right-radius: 25px;
+}
+
+tr.last-row{
+   background-color: rgba(4, 97, 123, 0.2);
+
+}
+
+tr.last-row th{
+   border-bottom-left-radius: 25px;
+   width: 30px;
+}
+
+tr.last-row td{
+   border-bottom-right-radius: 25px;
+}
+
+div.row div.to{
+   height: 260px;
+   padding-right: 25px;
+   border-right: 2px solid rgba(4, 97, 123, 0.2);
+}
+ 
+
+
+</style>
+<h2 mat-dialog-title>Invoice</h2>
+<mat-dialog-content class="mat-typography">
+    <div #pdfTable id="pdfTable" class="container  px-5 py-5">
+		<div class="row">
+		   <!-- <div class="col-3 contact-details">
+			  <h5>Name of Issuer</h5>
+			  <h6><em>Address of issuer</em></h6>
+			  <p>Contact details Spanning on multiple rows cuz bootstrap is awesome.</p>
+		   </div>  -->
+		   <div class="ml-48">
+			  <h1 ><b>INVOICE</b></h1>
+		   </div>
+		<!-- <div class="invoice-details col-3 offset-3 text-right">
+	  
+			  <h6>Invoice No. #1</h6>
+			  <h6>Issued at: 01/02/20 20</h6>
+	 
+		</div> -->
+		</div>
+	 
+		<div class="container-fluid invoice-letter mt-3">
+		   <div class="row">
+			  <div class="col-4 text-white pl-5 py-3 letter-title">
+				 <h5><b>MOHAN RAJ</b><br><br>
+					No.37, gndhi nagar - chennai-600060</h5>
+			  </div>
+			  <div class="col-4 text-white pl-5 py-3 letter-title">
+				<h5><b>Doc. No : </b> {{ItemArray[0].BELNR}} <br><br>
+					<b>PO Num : </b> {{ItemArray[0].EBELN}} <br><br>
+					<b>Fiscal year : </b> {{ItemArray[0].GJAHR}} </h5>
+			 </div>
+			 <div class="col-4 text-white pl-5 py-3 letter-title">
+				<h5><b>Created On : </b> {{Item2[1].CPUDT}} <br><br>
+					<b>Currency Type : </b> AFN <br><br>
+					<b>Unit : </b>EA</h5>
+			 </div>
+		   </div>
+		</div>
+	 
+		<div class="row table mt-5">
+		   <table class="invoice table table-hover">
+				 <thead class="thead">
+				   <tr>
+					 <th scope="col">NO.</th>
+					 <th scope="col">Item No</th>
+					 <th scope="col">Material No</th>
+					 <th scope="col">Quantity</th>
+					 <th scope="col">Total Stock amount</th>
+					 <th scope="col">Cost</th>
+				   </tr>
+				 </thead>
+				 <tbody>
+				   <tr *ngFor="let data of ItemArray; let i = index">
+					 <th scope="row">{{i+1}}</th>
+					 <td class="item">{{data.EBELP | number}}</td>
+					 <td>{{data.MATNR | number}}</td>
+					 <td>{{data.MENGE}}</td>
+					 <td>{{data.LBKUM}}</td>
+					 <td>{{data.WRBTR}}</td>
+				   </tr>
+				   <!-- <tr>
+					 <th scope="row">2</th>
+					 <td class="item">What about if we have a really, really, really long item title</td>
+					 <td>1</td>
+					 <td>25 <span class="currency">&euro;</span> </td>
+					 <td></td>
+					 <td>28,75 <span class="currency">&euro;</span> </td>
+				   </tr>
+				   <tr>
+					 <th scope="row">3</th>
+					 <td class="item">Bootstrap will just take care of this long title. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet tellus lectus. Quisque tincidunt lacus sed turpis blandit rutrum.</td>
+					 <td>1</td>
+					 <td>25 <span class="currency">&euro;</span> </td>
+					 <td>13 %</td>
+					 <td>28,75 <span class="currency">&euro;</span> </td>
+				   </tr> -->
+				 </tbody>
+			   </table>
+		</div>
+	 
+	 <div class="row">
+		<!-- invoiced to details -->
+		<div class=" offset-2 col-4">
+		   <!-- <div class="to text-right">
+				 <h5 class="effect-color pt-4">Invoiced to:</h5>
+				 <h4 class="theme-color"><strong>Company Name</strong></h4>
+				 <h6>Address of issuer</h6>
+				 <p>Contact details Spanning on multiple rows cuz bootstrap is awesome.</p>
+			  <h5>Due date: 02/02/20 20</h5>
+			   </div> -->
+		</div>
+		<!-- Invoice assets and total -->
+			 <div class="col-6 pr-5">
+			   <table class="table table-borderless text-right">
+				 <tbody>
+				   <tr>
+					 <th scope="row">Subtotal</th>
+					 <td>{{Total}} AFN</td>
+				   </tr>
+				   <tr>
+					 <th scope="row">Taxes*</th>
+					 <td>0 AFN</td>
+				   </tr>
+				   <!-- <tr>
+					 <th scope="row">Discounts</th>
+					 <td>7,5 <span class="currency">&euro;</span></td>
+				   </tr> -->
+				   <!-- <tr>
+					 <th scope="row">Shipping</th>
+					 <td><span class="currency">&euro;</span> 10,25</td>
+				   </tr> -->
+					<tr class="last-row">
+					   <th scope="row"><h4>Grand Total</h4></th>
+					   <td><h4>{{Total}} AFN</h4></td>
+				   </tr>
+				 </tbody>
+			   </table>
+			 </div>
+		</div>
+		<p class="text-center mt-3"><em>* Taxes will be calculated in EA using the default % value for your region</em></p>
+	 </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<button (click)="downloadAsPDF()" mat-button mat-dialog-close>Download</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
