@@ -33,7 +33,7 @@ export class VendorLoginComponent implements OnInit {
   Login(){
     // this.router.navigateByUrl('/vendorDashboard')
     // console.log(this.LoginForm.value);
-    // this.auth.LoggedIn(this.LoginForm.value.UserName);
+    this.vendAuth.LoggedIn(this.LoginForm.value.UserName);
     this.vendAuth.getLoginRes(this.LoginForm.value.UserName,this.LoginForm.value.Password);
     // console.log(this.auth.LogInUserName);
     // if(this.auth.Data.E_RETURN === 'S'){

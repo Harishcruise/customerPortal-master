@@ -265,6 +265,10 @@
 
       <div *ngIf="enquiry" class="main-container">
         <div class="main-header anim" style="--delay: 0s">Enquiry Details</div>
+        <div class="search-bar1 anim" style="--delay: 0s">
+            <div class="text-xl mr-6 text-cyan-50">Search:</div>
+            <input id="CustomerId" type="text" placeholder="Document Number" name="filterEnquiryData" [(ngModel)]="VBELN">
+          </div>
         <section class="main anim" style="--delay: 0.1s">
           <ul>
             <li>
@@ -277,7 +281,7 @@
               <div>Requested Delivery Date</div>
               <div>Indicator</div>
             </li>
-            <li *ngFor="let data of InquiryDataArray">
+            <li *ngFor="let data of InquiryDataArray | filter:VBELN">
               <div>{{data.VBELN}}</div>
               <div>{{data.ERDAT}}</div>
               <div>{{data.ERNAM}}</div>

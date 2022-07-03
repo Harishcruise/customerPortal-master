@@ -5,6 +5,7 @@ const cors=require('cors');
 // const request =require('request');
 const app= express();
 const port = 3000;
+var TempVar;
 app.use(bodyParser.json());
 app.use(cors());
 app.use(function(req,res,next){
@@ -15,6 +16,18 @@ app.use(function(req,res,next){
 app.listen(port,()=>{
     console.log("running");
 })
+app.post('/postloginData',(req,res)=>{
+    var username = req.body.username;
+    TempVar = username;
+    console.log(TempVar);
+    return res;
+})
+
+app.get('/getloginData',(req,res)=>{
+    res.json(TempVar);
+    console.log(res);
+})
+
 app.post('/login',(req,res)=>{
     var username = req.body.username;
     var password = req.body.password;
@@ -438,6 +451,226 @@ app.post('/vendorInvoiceDet',(req,res)=>{
     })
 
     .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_VEND_INV_DET_BRJ xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><INV_NO>'+invoiceno+'</INV_NO><INV_DET><item><MANDT/><BELNR/><GJAHR/><BUZEI/><EBELN/><EBELP/><ZEKKN/><MATNR/><BWKEY/><BWTAR/><BUKRS/><WERKS/><WRBTR/><SHKZG/><MWSKZ/><TXJCD/><MENGE/><BSTME/><BPMNG/><BPRME/><LBKUM/><VRKUM/><MEINS/><PSTYP/><KNTTP/><BKLAS/><EREKZ/><EXKBE/><XEKBZ/><TBTKZ/><SPGRP/><SPGRM/><SPGRT/><SPGRG/><SPGRV/><SPGRQ/><SPGRS/><SPGRC/><SPGREXT/><BUSTW/><XBLNR/><XRUEB/><BNKAN/><KSCHL/><SALK3/><VMSAL/><XLIFO/><LFBNR/><LFGJA/><LFPOS/><MATBF/><RBMNG/><BPRBM/><RBWWR/><LFEHL/><GRICD/><GRIRG/><GITYP/><PACKNO/><INTROW/><SGTXT/><XSKRL/><KZMEK/><MRMOK/><STUNR/><ZAEHK/><STOCK_POSTING/><STOCK_POSTING_PP/><STOCK_POSTING_PY/><WEREC/><LIFNR/><FRBNR/><XHISTMA/><COMPLAINT_REASON/><RETAMT_FC/><RETPC/><RETDUEDT/><XRETTAXNET/><RE_ACCOUNT/><ERP_CONTRACT_ID/><ERP_CONTRACT_ITM/><SRM_CONTRACT_ID/><SRM_CONTRACT_ITM/><CONT_PSTYP/><SRVMAPKEY/><CHARG/><INV_ITM_ORIGIN/><INVREL/><XDINV/><DIFF_AMOUNT/><XCPRF/><FSH_SEASON_YEAR/><FSH_SEASON/><FSH_COLLECTION/><FSH_THEME/><LICNO/><ZEILE/><SGT_SCAT/><WRF_CHARSTC1/><WRF_CHARSTC2/><WRF_CHARSTC3/></item></INV_DET></ns0:ZFM_VEND_INV_DET_BRJ>')  
+
+    .end(function(result){
+
+        if(result.error){
+
+            console.log(result.error);
+
+        }
+
+        else{
+
+            this.res = result.body;
+
+            console.log(this.res);
+
+        }
+
+        res.json(result.body);
+
+        console.log(res);
+
+
+
+    } )
+
+})
+
+app.post('/EmployeeProfile',(req,res)=>{
+
+    var username = req.body.username;
+
+    // var password = req.body.password;
+
+    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/EMPHARSHA271')
+
+    .header({
+
+        'Authorization':'Basic UE9VU0VSQDE6VGVjaEAyMDIy',
+
+        'Context-Type':'application/json'
+
+    })
+
+    .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_EMP_PROFILE_BRJ xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><EMPID>'+ username +'</EMPID><COMPANY><item><COMP_CODE/><COMP_NAME/><CITY/><COUNTRY/><CURRENCY/><LANGU/><CHRT_ACCTS/><FY_VARIANT/><VAT_REG_NO/><COMPANY/><ADDR_NO/><COUNTRY_ISO/><CURRENCY_ISO/><LANGU_ISO/></item></COMPANY><COMPANY_ADDRESS><item><ADDR_NO/><FORMOFADDR/><NAME/><NAME_2/><NAME_3/><NAME_4/><C_O_NAME/><CITY/><DISTRICT/><CITY_NO/><POSTL_COD1/><POSTL_COD2/><POSTL_COD3/><PO_BOX/><PO_BOX_CIT/><DELIV_DIS/><STREET/><STREET_NO/><STR_ABBR/><HOUSE_NO/><STR_SUPPL1/><STR_SUPPL2/><LOCATION/><BUILDING/><FLOOR/><ROOM_NO/><COUNTRY/><LANGU/><REGION/><SORT1/><SORT2/><TIME_ZONE/><TAXJURCODE/><ADR_NOTES/><COMM_TYPE/><TEL1_NUMBR/><TEL1_EXT/><FAX_NUMBER/><FAX_EXTENS/></item></COMPANY_ADDRESS></ns0:ZFM_EMP_PROFILE_BRJ>')  
+
+    .end(function(result){
+
+        if(result.error){
+
+            console.log(result.error);
+
+        }
+
+        else{
+
+            this.res = result.body;
+
+            console.log(this.res);
+
+        }
+
+        res.json(result.body);
+
+        console.log(res);
+
+
+
+    } )
+
+})
+app.post('/EmployeeLeave',(req,res)=>{
+
+    var username = req.body.username;
+
+    // var password = req.body.password;
+
+    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/employeeLeave_900421')
+
+    .header({
+
+        'Authorization':'Basic UE9VU0VSQDE6VGVjaEAyMDIy',
+
+        'Context-Type':'application/json'
+
+    })
+
+    .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_EP_LEAVE xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><EMPID>'+ username +'</EMPID><IT_LEAVE_BALANCE><item><QUOTATYPE/><LEAVETYPE/><QUOTATEXT/><QUOTAEND/><QUOTABEG/><ENTITLE/><DEDUCT/><ORDERED/><QUOTANUM/><TIME_UNIT/><TIUNITEXT/></item></IT_LEAVE_BALANCE><IT_LEAVE_DETAIL><item><EMPLOYEENO/><SUBTYPE/><OBJECTID/><LOCKINDIC/><VALIDEND/><VALIDBEGIN/><RECORDNR/><START/><END/><ABSENCETYPE/><NAMEOFABSENCETYPE/><ABSENCEDAYS/><ABSENCEHOURS/></item></IT_LEAVE_DETAIL><IT_LEAVE_TYPE><item><MANDT/><SPRSL/><MOABW/><AWART/><ATEXT/></item></IT_LEAVE_TYPE></ns0:ZFM_EP_LEAVE>')  
+
+    .end(function(result){
+
+        if(result.error){
+
+            console.log(result.error);
+
+        }
+
+        else{
+
+            this.res = result.body;
+
+            console.log(this.res);
+
+        }
+
+        res.json(result.body);
+
+        console.log(res);
+
+
+
+    } )
+
+})
+
+app.post('/EmployeePayslip',(req,res)=>{
+
+    var username = req.body.username;
+
+    // var password = req.body.password;
+
+    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/employeePSDET_900421')
+
+    .header({
+
+        'Authorization':'Basic UE9VU0VSQDE6VGVjaEAyMDIy',
+
+        'Context-Type':'application/json'
+
+    })
+
+    .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_EP_PSDET xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><EMPID>'+ username +'</EMPID><PAYSLIP_DET><item><SEQUENCENUMBER/><FPPERIOD/><FPBEGIN/><FPEND/><BONUSDATE/><PAYDATE/><PAYTYPE/><PAYID/><OCREASON/><PAYTYPE_TEXT/><OCREASON_TEXT/></item></PAYSLIP_DET></ns0:ZFM_EP_PSDET>')  
+
+    .end(function(result){
+
+        if(result.error){
+
+            console.log(result.error);
+
+        }
+
+        else{
+
+            this.res = result.body;
+
+            console.log(this.res);
+
+        }
+
+        res.json(result.body);
+
+        console.log(res);
+
+
+
+    } )
+
+})
+
+app.post('/EmployeePayslipPdf',(req,res)=>{
+
+    var username = req.body.username;
+
+    var password = req.body.password;
+
+    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/eppspdf396')
+
+    .header({
+
+        'Authorization':'Basic UE9VU0VSQDE6VGVjaEAyMDIy',
+
+        'Context-Type':'application/json'
+
+    })
+
+    .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_PSPDF_EP_SAN xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><EMPID>'+ username +'</EMPID><SEQNO>'+ password +'</SEQNO><PAYSLIP_HTML><item><LINE/></item></PAYSLIP_HTML><PAYSLIP_TAB><item><FORMAT_COL/><TEXT_COL/></item></PAYSLIP_TAB></ns0:ZFM_PSPDF_EP_SAN>')  
+
+    .end(function(result){
+
+        if(result.error){
+
+            console.log(result.error);
+
+        }
+
+        else{
+
+            this.res = result.body;
+
+            console.log(this.res);
+
+        }
+
+        res.json(result.body);
+
+        console.log(res);
+
+
+
+    } )
+
+})
+
+
+app.post('/EmployeeLogin',(req,res)=>{
+
+    var username = req.body.username;
+
+    var password = req.body.password;
+
+    var req = unirest('GET','http://dxktpipo.kaarcloud.com:50000/RESTAdapter/employeeLogin_900421')
+
+    .header({
+
+        'Authorization':'Basic UE9VU0VSQDE6VGVjaEAyMDIy',
+
+        'Context-Type':'application/json'
+
+    })
+
+    .send('<?xml version="1.0" encoding="UTF-8"?><ns0:ZFM_EP_LOGIN xmlns:ns0="urn:sap-com:document:sap:rfc:functions"><PASSWORD>'+ password +'</PASSWORD><UID>'+ username +'</UID><PROFILE_DET><item><COMP_CODE/><COMP_NAME/><CITY/><COUNTRY/><CURRENCY/><LANGU/><CHRT_ACCTS/><FY_VARIANT/><VAT_REG_NO/><COMPANY/><ADDR_NO/><COUNTRY_ISO/><CURRENCY_ISO/><LANGU_ISO/></item></PROFILE_DET></ns0:ZFM_EP_LOGIN>')  
 
     .end(function(result){
 

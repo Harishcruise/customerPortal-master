@@ -19,6 +19,10 @@ LoggedIn(userName : string){
   this.LogInUserName=userName;
 }
 
+LoginData(){
+  return this.http.get('http://localhost:3000/getloginData');
+}
+
 Profile(vendID: string):Observable<any>{
   return this.http.post('http://localhost:3000/vendorProfile',{username:vendID})
 }
@@ -56,6 +60,11 @@ InvoiceDet(vendID: Number):Observable<any>{
 }
 
 getLoginRes(user: string , password: Number ){
+  this.http.post('http://localhost:3000/postloginData',{username:user}).subscribe(
+    response =>{
+      console.log(response)
+    }
+  )
   return this.http.post("http://localhost:3000/vendorLogin",{
     username:user,
     password:password
@@ -65,7 +74,8 @@ getLoginRes(user: string , password: Number ){
       this.Data = JSON.parse(JSON.stringify(response));
       console.log(this.Data);
       if(this.Data.BAPIRET.TYPE === 'S'){
-        sessionStorage.setItem(''+user,''+password);
+        localStorage.clear();
+        localStorage.setItem("vend",''+user);
         this.router.navigateByUrl('/vendorDashboard');
       }
       else{

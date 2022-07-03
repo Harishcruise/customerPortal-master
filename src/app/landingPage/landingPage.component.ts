@@ -1,4 +1,4 @@
-import { Component, OnInit,OnChanges, ElementRef, Renderer2, ViewChild, AfterViewInit,SimpleChanges , ViewEncapsulation,Inject} from '@angular/core';
+import { Component, OnInit,OnChanges, ElementRef, Renderer2, ViewChild, AfterViewInit,SimpleChanges , ViewEncapsulation,Inject,Pipe} from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
@@ -73,11 +73,13 @@ export class LandingPageComponent implements OnInit {
   DebitMemoDataArray: any[]=[];
   InquiryDataArray: any[]=[];
   InvoiceDataArray: any[]=[];
+  VBELN: any;
   ResultForm = this.fb.group({
     Cust:[''],
     Doc:[''],
   })
-
+  loginData;
+  filterEnquiryData: string ='';
   
   constructor(private auth: AuthService,private router: Router, private resolve:ActivatedRoute,private http: HttpClient,private fb:FormBuilder,private dialog:MatDialog) {
   
@@ -139,7 +141,9 @@ export class LandingPageComponent implements OnInit {
   }
 
   async getData(){
-    this.ProfileData= await this.auth.Profile(parseInt(this.auth.LogInUserName)).toPromise();
+    this.loginData = await this.auth.LoginData().toPromise();
+    console.log(this.loginData);
+    this.ProfileData= await this.auth.Profile(this.loginData).toPromise();
     this.DeliveryData= await this.auth.Delivery(12).toPromise();
     this.SaleData = await this.auth.Sale(12).toPromise();
     this.PaymentData = await this.auth.Payment(12).toPromise();
@@ -184,7 +188,7 @@ export class LandingPageComponent implements OnInit {
 
   
   LogOut(){
-    sessionStorage.clear();
+    localStorage.clear();
     this.router.navigate(["/main"])
     
   }

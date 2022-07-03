@@ -86,6 +86,7 @@ export class VendorDashboardComponent implements OnInit {
   RfqItemArray: any[]=[];
   PurchaseOrderItemArray: any[]=[];
   InvoiceListDataArray: any[]=[];
+  loginData;
   ResultForm = this.fb.group({
     Cust:[''],
     Doc:[''],
@@ -116,14 +117,16 @@ dateString = this.mm + '-' + this.dd + '-' + this.yyyy;
 
 
   async getData(){
-    this.ProfileData= await this.vendAuth.Profile("MOHANRAJ").toPromise();
-    this.GoodsData= await this.vendAuth.Goods("MOHANRAJ").toPromise();
-    this.PurchaseData = await this.vendAuth.Purchase("MOHANRAJ").toPromise();
-    this.PaymentData = await this.vendAuth.Payment("MOHANRAJ").toPromise();
-    this.CreditMemoData = await this.vendAuth.Credit("MOHANRAJ").toPromise();
-    this.DebitMemoData = await this.vendAuth.Debit("MOHANRAJ").toPromise();
+    this.loginData = await this.vendAuth.LoginData().toPromise();
+    console.log(this.loginData);
+    this.ProfileData= await this.vendAuth.Profile(this.loginData).toPromise();
+    this.GoodsData= await this.vendAuth.Goods(this.loginData).toPromise();
+    this.PurchaseData = await this.vendAuth.Purchase(this.loginData).toPromise();
+    this.PaymentData = await this.vendAuth.Payment(this.loginData).toPromise();
+    this.CreditMemoData = await this.vendAuth.Credit(this.loginData).toPromise();
+    this.DebitMemoData = await this.vendAuth.Debit(this.loginData).toPromise();
     this.RfqData = await this.vendAuth.Rfq(5).toPromise();
-    this.InvoiceListData = await this.vendAuth.InvoiceList("MOHANRAJ").toPromise();
+    this.InvoiceListData = await this.vendAuth.InvoiceList(this.loginData).toPromise();
 
     console.log(this.ProfileData,this.GoodsData,this.PurchaseData,this.PaymentData,this.CreditMemoData,this.DebitMemoData,this.RfqData,this.InvoiceListData);
     // this.GoodsDataArray = [...this.GoodsData.T_GOODS_VALUES.item];
@@ -151,7 +154,7 @@ dateString = this.mm + '-' + this.dd + '-' + this.yyyy;
     })
   }
   LogOut(){
-    sessionStorage.clear();
+    localStorage.clear();
     this.router.navigate(["/main"])
     
   }

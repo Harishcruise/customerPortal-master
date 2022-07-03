@@ -41,6 +41,9 @@ import { VendorLoginComponent } from './Vendor-login/Vendor-login.component';
 import { VendorDashboardComponent } from './vendor-dashboard/vendor-dashboard.component';
 import { EmployeeLoginComponent } from './employee-login/employee-login.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
+import {FilterPipe} from './pipe/filter.pipe'
+import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -54,7 +57,7 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
       VendorDashboardComponent,
       AppVendorDialog,
       EmployeeLoginComponent,
-      EmployeeDashboardComponent
+      EmployeeDashboardComponent,
    ],
   imports: [
     BrowserModule,
@@ -75,6 +78,7 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
     MdbTooltipModule,
     MdbValidationModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     MatButtonModule,
     MatMenuModule,
@@ -83,7 +87,8 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
     MatSnackBarModule,
     MdbModalModule,
     MatDialogModule,
-    MatDividerModule
+    MatDividerModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     AuthGuardGuard,AuthService,LoginGuardGuard,LoginComponent],

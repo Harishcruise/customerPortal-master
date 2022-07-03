@@ -54,9 +54,17 @@ export class AuthService {
     return this.http.post('http://localhost:3000/invoice',{username:CustId,password:DocNum})
   }
 
-
+  LoginData(){
+    return this.http.get('http://localhost:3000/getloginData');
+  }
+  
 
   getLoginRes(user: Number , password: Number ){
+    this.http.post('http://localhost:3000/postloginData',{username:user}).subscribe(
+    response =>{
+      console.log(response)
+    }
+  )
     return this.http.post(this.baseUrl,{
       username:user,
       password:password
@@ -66,7 +74,7 @@ export class AuthService {
         this.Data = JSON.parse(JSON.stringify(response));
         console.log(this.Data);
         if(this.Data.E_BAPIRET.TYPE === 'S'){
-          sessionStorage.setItem(''+user,''+password);
+          localStorage.setItem("cust",''+user);
           this.router.navigateByUrl('/home');
         }
         else{

@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardGuard implements CanActivate {
-  constructor(private auth: AuthService, private route: Router){
+export class VendDashGuardGuard implements CanActivate {
+  constructor( private route: Router){
 
   }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(localStorage.key(0)==="cust"){
-      return true;
+      if(localStorage.key(0)==="vend"){
+        return true;
+      }
+      this.route.navigate(["vendorLogin"]);
+      return false;
     }
-    this.route.navigate(["login"]);
-    return false;
   }
   
-}
+
