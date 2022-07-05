@@ -31,7 +31,13 @@ export class AppVendorDialog implements OnInit{
       
   }
   ngOnInit() {
-    this.ItemArray = [...this.Item]
+    // this.ItemArray = [...this.Item];
+    if(this.Item.length === undefined){
+      this.ItemArray[0]=this.Item
+    }
+    else{
+      this.ItemArray = this.Item;
+    }
     this.ItemArray.map((value)=>{
       this.Total = this.Total + parseInt(value.WRBTR); 
     })
