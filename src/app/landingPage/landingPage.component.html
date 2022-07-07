@@ -1,5 +1,13 @@
-<div class="bod">
-  <div class="container">
+
+<div  class="bod">
+  <div *ngIf="load" class="loader1">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div *ngIf="content" class="container anim" style="--delay: .1s">
     <div class="sidebar">
       <span class="logo">S</span>
       <a class="logo-expand" href="#">Customer Dashboard</a>
@@ -47,7 +55,7 @@
               <path d="M14 24L22 24" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
                 fill="white"></path>
             </svg>
-            Enquiry Detail
+            Inquiry Detail
           </a>
           <a class="sidebar-link cursor-pointer" [ngClass]="sale ? 'active' : 'dis'" (click)="sa()">
             <svg style="color: white" width="30" height="30" viewBox="0 0 48 48" fill="none"
@@ -82,6 +90,10 @@
               <path d="M15 17H16" stroke="currentColor" stroke-linecap="round" /> </svg>
             List of Delivery
           </a>
+          <a class="sidebar-link cursor-pointer" [ngClass]="invoice ? 'active' : 'dis'" (click)="inv()">
+            <svg style="color: white" width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M384 128h-128V0L384 128zM256 160H384v304c0 26.51-21.49 48-48 48h-288C21.49 512 0 490.5 0 464v-416C0 21.49 21.49 0 48 0H224l.0039 128C224 145.7 238.3 160 256 160zM64 88C64 92.38 67.63 96 72 96h80C156.4 96 160 92.38 160 88v-16C160 67.63 156.4 64 152 64h-80C67.63 64 64 67.63 64 72V88zM72 160h80C156.4 160 160 156.4 160 152v-16C160 131.6 156.4 128 152 128h-80C67.63 128 64 131.6 64 136v16C64 156.4 67.63 160 72 160zM197.5 316.8L191.1 315.2C168.3 308.2 168.8 304.1 169.6 300.5c1.375-7.812 16.59-9.719 30.27-7.625c5.594 .8438 11.73 2.812 17.59 4.844c10.39 3.594 21.83-1.938 25.45-12.34c3.625-10.44-1.891-21.84-12.33-25.47c-7.219-2.484-13.11-4.078-18.56-5.273V248c0-11.03-8.953-20-20-20s-20 8.969-20 20v5.992C149.6 258.8 133.8 272.8 130.2 293.7c-7.406 42.84 33.19 54.75 50.52 59.84l5.812 1.688c29.28 8.375 28.8 11.19 27.92 16.28c-1.375 7.812-16.59 9.75-30.31 7.625c-6.938-1.031-15.81-4.219-23.66-7.031l-4.469-1.625c-10.41-3.594-21.83 1.812-25.52 12.22c-3.672 10.41 1.781 21.84 12.2 25.53l4.266 1.5c7.758 2.789 16.38 5.59 25.06 7.512V424c0 11.03 8.953 20 20 20s20-8.969 20-20v-6.254c22.36-4.793 38.21-18.53 41.83-39.43C261.3 335 219.8 323.1 197.5 316.8z" fill="white"></path></svg>
+            Invoice Details
+          </a>
           <a class="sidebar-link cursor-pointer" [ngClass]="payment ? 'active' : 'dis'" (click)="pay()">
             <svg style="color: white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
@@ -101,10 +113,7 @@
             </svg>
             Credit Memo Details
           </a>
-          <a class="sidebar-link cursor-pointer" [ngClass]="invoice ? 'active' : 'dis'" (click)="inv()">
-            <svg style="color: white" width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M384 128h-128V0L384 128zM256 160H384v304c0 26.51-21.49 48-48 48h-288C21.49 512 0 490.5 0 464v-416C0 21.49 21.49 0 48 0H224l.0039 128C224 145.7 238.3 160 256 160zM64 88C64 92.38 67.63 96 72 96h80C156.4 96 160 92.38 160 88v-16C160 67.63 156.4 64 152 64h-80C67.63 64 64 67.63 64 72V88zM72 160h80C156.4 160 160 156.4 160 152v-16C160 131.6 156.4 128 152 128h-80C67.63 128 64 131.6 64 136v16C64 156.4 67.63 160 72 160zM197.5 316.8L191.1 315.2C168.3 308.2 168.8 304.1 169.6 300.5c1.375-7.812 16.59-9.719 30.27-7.625c5.594 .8438 11.73 2.812 17.59 4.844c10.39 3.594 21.83-1.938 25.45-12.34c3.625-10.44-1.891-21.84-12.33-25.47c-7.219-2.484-13.11-4.078-18.56-5.273V248c0-11.03-8.953-20-20-20s-20 8.969-20 20v5.992C149.6 258.8 133.8 272.8 130.2 293.7c-7.406 42.84 33.19 54.75 50.52 59.84l5.812 1.688c29.28 8.375 28.8 11.19 27.92 16.28c-1.375 7.812-16.59 9.75-30.31 7.625c-6.938-1.031-15.81-4.219-23.66-7.031l-4.469-1.625c-10.41-3.594-21.83 1.812-25.52 12.22c-3.672 10.41 1.781 21.84 12.2 25.53l4.266 1.5c7.758 2.789 16.38 5.59 25.06 7.512V424c0 11.03 8.953 20 20 20s20-8.969 20-20v-6.254c22.36-4.793 38.21-18.53 41.83-39.43C261.3 335 219.8 323.1 197.5 316.8z" fill="white"></path></svg>
-            Invoice Details
-          </a>
+          
         </div>
       </div>
       <!-- <div class="side-wrapper">
@@ -238,7 +247,7 @@
                   </div>
                   <div class="col-sm-6">
                     <h3 class="m-b-10 f-w-600 text-zinc-800">Phone</h3>
-                    <h3 class="text-muted f-w-400">{{ ProfileData.IT_OUTPUT.TELF1 }}</h3>
+                    <h3 class="text-muted f-w-400">{{ ProfileData.IT_OUTPUT.TELF1 ? ProfileData.IT_OUTPUT.TELF1 : "9047242341" }}</h3>
                   </div>
                 </div>
                 <!-- <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6> -->
@@ -299,6 +308,10 @@
       <!-- content 4 -->
       <div *ngIf="sale" class="main-container">
         <div class="main-header anim" style="--delay: 0s">Sales Order</div>
+        <div class="search-bar1 anim" style="--delay: 0s">
+          <div class="text-xl mr-6 text-cyan-50">Search:</div>
+          <input id="CustomerId" type="text" placeholder="Document Number" name="filterEnquiryData" [(ngModel)]="VBELN">
+        </div>
         <section class="main anim" style="--delay: 0.1s">
           <ul>
             <li>
@@ -314,7 +327,7 @@
 					<div>Required Quantity</div>
 					<div>Sales Organization</div> -->
             </li>
-            <li *ngFor="let data of SaleDataArray">
+            <li *ngFor="let data of SaleDataArray | filter:VBELN">
               <div>{{data.SD_DOC}}</div>
               <div>{{data.CREATION_DATE}}</div>
               <div>{{data.BASE_UOM}}</div>
@@ -336,6 +349,10 @@
 
       <div *ngIf="delivery" class="main-container">
         <div class="main-header anim" style="--delay: 0s">Delivery Details</div>
+        <div class="search-bar1 anim" style="--delay: 0s">
+          <div class="text-xl mr-6 text-cyan-50">Search:</div>
+          <input id="CustomerId" type="text" placeholder="Distribution Number" name="filterEnquiryData" [(ngModel)]="VBELN">
+        </div>
         <section class="main anim" style="--delay: 0.1s">
           <ul>
             <li>
@@ -348,7 +365,7 @@
               <div>IncoTerms</div>
               <div>Time Of Delivery</div>
             </li>
-            <li *ngFor="let data of DeliveryDataArray">
+            <li *ngFor="let data of DeliveryDataArray | filter:VBELN">
               <div>{{data.VBELN}}</div>
               <div>{{data.ERZET}}</div>
               <div>{{data.ERDAT}}</div>
@@ -377,7 +394,7 @@
               <div>Account DOC Number</div>
               <div>Billing Date</div>
               <div>Due Date</div>
-              <div>Aging Date</div>
+              <div>Pay Aging</div>
               <div>Payment Status</div>
               <div>Amount</div>
             </li>
@@ -400,9 +417,13 @@
 
       <div *ngIf="credit" class="main-container">
         <div class="main-header anim" style="--delay: 0s">Credit/Debit Memo Details</div>
+        <div class="search-bar1 anim" style="--delay: 0s">
+          <div class="text-xl mr-6 text-cyan-50">Search:</div>
+          <input id="CustomerId" type="text" placeholder="Account Number" name="filterEnquiryData" [(ngModel)]="VBELN">
+        </div>
         <mat-tab-group class="main anim" style="--delay: 0.1s" mat-align-tabs="center">
           <mat-tab label="Credit Details">
-            <section class="main">
+            <section class="main anim" style="--delay: 0.1s">
               <ul>
                 <li>
 
@@ -415,7 +436,7 @@
                   <div>Quantity</div>
                   <div>Indicator</div>
                 </li>
-                <li *ngFor="let data of CreditMemoDataArray">
+                <li *ngFor="let data of CreditMemoDataArray| filter:VBELN">
 
                   <div>{{data.BELNR}}</div>
                   <div>{{data.BUZEI}}</div>
@@ -430,7 +451,7 @@
             </section>
           </mat-tab>
           <mat-tab label="Debit Details" style="color:white ;">
-            <section class="main">
+            <section class="main anim" style="--delay: 0.1s">
               <ul>
                 <li>
 
@@ -443,7 +464,7 @@
                   <div>Quantity</div>
                   <div>Indicator</div>
                 </li>
-                <li *ngFor="let data of DebitMemoDataArray">
+                <li *ngFor="let data of DebitMemoDataArray| filter:VBELN">
 
                   <div>{{data.BELNR}}</div>
                   <div>{{data.BUZEI}}</div>

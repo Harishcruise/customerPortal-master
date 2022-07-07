@@ -74,6 +74,7 @@ export class AuthService {
         this.Data = JSON.parse(JSON.stringify(response));
         console.log(this.Data);
         if(this.Data.E_BAPIRET.TYPE === 'S'){
+          localStorage.clear();
           localStorage.setItem("cust",''+user);
           this.router.navigateByUrl('/home');
         }

@@ -17,6 +17,8 @@ import htmlToPdfmake from 'html-to-pdfmake';
   styleUrls: ['./employee-dashboard.component.css']
 })
 export class EmployeeDashboardComponent implements OnInit {
+  load : Boolean = true;
+  content : Boolean =false;
   profile : Boolean =true;
   enquiry : Boolean =false;
   sale : Boolean =false;
@@ -69,6 +71,10 @@ export class EmployeeDashboardComponent implements OnInit {
     this.leaveDetailDataArray = [...this.LeaveData.IT_LEAVE_DETAIL.item];
     this.leaveBalanceDataArray = [...this.LeaveData.IT_LEAVE_BALANCE.item];
     this.PayDataArray = [...this.PayData.PAYSLIP_DET.item]
+    this.leaveBalanceDataArray.shift();
+    console.log(this.leaveBalanceDataArray);
+    this.content = true;
+    this.load = false;
   }
 
   async getPdf(Seq:Number){

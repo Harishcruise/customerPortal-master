@@ -44,6 +44,8 @@ export class AppDialog{
   // encapsulation: ViewEncapsulation.None
 })
 export class LandingPageComponent implements OnInit {
+  load : Boolean = true;
+  content : Boolean =false;
   profile : Boolean =false;
   enquiry : Boolean =false;
   sale : Boolean =false;
@@ -158,8 +160,10 @@ export class LandingPageComponent implements OnInit {
     this.DebitMemoDataArray = [...this.CreditMemoData.IT_DEB.item];
     this.InquiryDataArray = [...this.InquiryData.INQ_DET.item];
     this.paymentDataArray2 = [...this.payementData2.INV_DET.item];
+    this.DeliveryDataArray.shift();
+    this.DebitMemoDataArray.shift();
+    this.CreditMemoDataArray.shift();
     this.paymentDataArray2.map((value)=>{
-      console.log(value);
         if(value.KOART==='S')  {
           this.paymentDataArray3.push(value);
         }
@@ -183,7 +187,8 @@ export class LandingPageComponent implements OnInit {
       }
     })
     console.log(this.paymentDataArray3);
-
+    this.content = true;
+    this.load = false;
   }
 
   

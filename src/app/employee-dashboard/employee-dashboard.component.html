@@ -1,5 +1,12 @@
 <div class="bod">
-  <div class="container">
+  <div *ngIf="load" class="loader1">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div *ngIf="content" class="container anim" style="--delay: .1s">
     <div class="sidebar">
       <span class="logo">S</span>
       <a class="logo-expand" href="#">Employee Dashboard</a>

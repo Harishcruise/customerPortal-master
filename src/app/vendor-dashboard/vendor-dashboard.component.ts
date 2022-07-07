@@ -62,6 +62,8 @@ export class AppVendorDialog implements OnInit{
   styleUrls: ['./vendor-dashboard.component.css']
 })
 export class VendorDashboardComponent implements OnInit {
+  load : Boolean = true;
+  content : Boolean =false;
   profile : Boolean =false;
   enquiry : Boolean =false;
   sale : Boolean =false;
@@ -71,6 +73,7 @@ export class VendorDashboardComponent implements OnInit {
   credit : Boolean = false;
   invoice : Boolean = false;
   expandBool : Boolean = true;
+  VBELN : string ='';
   expand: string = 'expand_more';
   ProfileData;
   GoodsData;
@@ -158,6 +161,16 @@ dateString = this.mm + '-' + this.dd + '-' + this.yyyy;
 
       }
     })
+    this.GoodsDataArray.shift()
+    this.GoodsItemArray.shift()
+      this.PurchaseDataArray.shift()
+    this.PurchaseOrderItemArray.shift()
+    this.RfqDataArray.shift()
+    this.RfqItemArray.shift()
+    this.CreditMemoDataArray.shift()
+    this.DebitMemoDataArray.shift()
+    this.content = true;
+    this.load = false;
   }
   LogOut(){
     localStorage.clear();
